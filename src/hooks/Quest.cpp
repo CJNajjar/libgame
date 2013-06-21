@@ -28,7 +28,7 @@ void Quest::init(){
     std::cout << "    "<< this->party2->name << std::endl;
     std::cout << "    "<< this->d2->name << std::endl;
     std::cout << "    "<< this->mysql->name << std::endl;
-    std::cout << "    "<< this->horse2->name << std::endl;
+    //std::cout << "    "<< this->horse2->name << std::endl;
     std::cout << "    "<< this->pet->name << std::endl;
 }
 void Quest::hook(){
@@ -39,7 +39,7 @@ void Quest::hook(){
     AddLuaFunctionTable(*singleton_CQuestManager, i->party2->name, i->party2->reg);
     AddLuaFunctionTable(*singleton_CQuestManager, i->d2->name, i->d2->reg);
     AddLuaFunctionTable(*singleton_CQuestManager, i->mysql->name, i->mysql->reg);
-    AddLuaFunctionTable(*singleton_CQuestManager, i->horse2->name, i->horse2->reg);
+    //AddLuaFunctionTable(*singleton_CQuestManager, i->horse2->name, i->horse2->reg);
     AddLuaFunctionTable(*singleton_CQuestManager, i->pet->name, i->pet->reg);
     i->detour->GetOriginalFunction()();
 }

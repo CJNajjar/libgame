@@ -25,10 +25,15 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
     }
     unsigned char charType;
     float dist,y, x;
-    /*DWORD segments[16][3];
-    short segmentCount=0;
-    DWORD selfSegments[16][3];
-    short selfSegmentCount=0;*/
+    // Buffer sent to everyone, but ch
+    char* buffer = new char[3+0xC*16];
+    char* bBase=buffer+3;
+    short bCount=0;
+    // Buffer sent to everyone
+    char* selfBuffer = new char[3+0xC*16];
+    char* sbBase=buffer+3;
+    short sbCount=0;
+
     const char* curAddr=data+3;
     GameFunc::CHARACTER* chTarget;
     DWORD target;
@@ -57,10 +62,11 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
                 if (chTarget->m_fSyncDist+dist > 25.0){
                     if (chTarget->m_fSyncDist>=25.0){
                         SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " already) - skipping - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
-                        /*selfSegments[selfSegmentCount][0]=target;
-                        selfSegments[selfSegmentCount][1]=chTarget->m_pos.x;
-                        selfSegments[selfSegmentCount][2]=chTarget->m_pos.y;
-                        selfSegmentCount++;*/
+                        *(DWORD*)(sbBase)=target;
+                        *(DWORD*)(sbBase+4)=chTarget->m_pos.x;
+                        *(DWORD*)(sbBase+8)=chTarget->m_pos.y;
+                        sbBase+=0xc;
+                        sbCount++;
                         continue;
                     }
                     SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " + " << dist << ") - limiting - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
@@ -73,46 +79,31 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
                     px -=(int)((x-xN*allowedDist)*100);
                     py -=(int)((y-yN*allowedDist)*100);
                 }
-                /*segments[segmentCount][0]=target;
-                segments[segmentCount][1]=px;
-                segments[segmentCount][2]=py;
-                segmentCount++;*/
+                *(DWORD*)(bBase)=target;
+                *(DWORD*)(bBase+4)=(DWORD)px;
+                *(DWORD*)(bBase+8)=(DWORD)py;
+                bBase+=0xc;
+                bCount++;
                 CHARACTER::Sync(chTarget,(long)px,(long)py);
             }
         }
     }
-    /*if (segmentCount>0){
-        // Send update packet to all players
-        char* buffer = new char(3+0xC*segmentCount);
+    // Send update packet to all players
+    if (bCount>0){
         // type
-        *(BYTE*)(buffer)=5;
+        *(buffer)=(char)5;
         // size
-        *(short*)(buffer+1)=3+0xC*segmentCount;
-        char* base=(buffer+3);
-        for(int i=0;i<segmentCount;i++){
-            *(DWORD*)(base)=segments[i][0];
-            *(DWORD*)(base+4)=segments[i][1];
-            *(DWORD*)(base+8)=segments[i][2];
-            base+=0xC;
-        }
-        CEntity::PacketAround(ch,buffer,3+0xC*segmentCount,ch);
+        *(buffer+1)=(short)(3+0xC*bCount);
+        CEntity::PacketAround(ch,buffer,3+0xC*bCount,ch);
     }
-    if (selfSegmentCount>0){
-        // Send update packet to all players
-        char* buffer2 = new char(3+0xC*selfSegmentCount);
+    // Send update packet to all players
+    if (sbCount>0){
         // type
-        *(BYTE*)(buffer2)=5;
+        *(BYTE*)(selfBuffer)=(char)5;
         // size
-        *(short*)(buffer2+1)=3+0xC*selfSegmentCount;
-        char* base=(buffer2+3);
-        for(int i=0;i<selfSegmentCount;i++){
-            *(DWORD*)(base)=selfSegments[i][0];
-            *(DWORD*)(base+4)=selfSegments[i][1];
-            *(DWORD*)(base+8)=selfSegments[i][2];
-            base+=0xC;
-        }
-        CEntity::PacketAround(ch,buffer2,3+0xC*selfSegmentCount,nullptr);
-    }*/
+        *(short*)(selfBuffer+1)=(short)(3+0xC*sbCount);
+        CEntity::PacketAround(ch,selfBuffer,(short)(3+0xC*sbCount),nullptr);
+    }
     return len-3;
 }
 

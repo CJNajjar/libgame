@@ -438,6 +438,7 @@ void lib_main()
         try
         {
             quest::Quest::instance()->init();
+            CInputMain::HSyncPos::instance()->init();
             CHARACTER::CharacterDestroy::instance()->init();
             CHARACTER::CharacterConstructor::instance()->init();
             detour_WriteVersion = new MologieDetours::Detour<tWriteVersion>((tWriteVersion)General::Addr::kWriteVersion , hook_WriteVersion);
@@ -446,7 +447,6 @@ void lib_main()
 			detour_GMBigNotice = new MologieDetours::Detour<Command::tcommand>((Command::tcommand)Command::Addr::kBigNotice , Command::hook_GMBigNotice);
             detour_GMChangeAttr = new MologieDetours::Detour<Command::tcommand>((Command::tcommand)Command::Addr::kChangeAttr , Command::hook_GMChangeAttr);
             detour_GMIpurge = new MologieDetours::Detour<Command::tcommand>((Command::tcommand)Command::Addr::kIPurge , Command::hook_GMIPurge);
-            CInputMain::HSyncPos::instance()->init();
         }catch(MologieDetours::DetourException &e){
             std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
         }
