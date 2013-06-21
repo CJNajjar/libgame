@@ -1,0 +1,23 @@
+#ifndef __QUEST_MOB_HPP
+#define __QUEST_MOB_HPP
+#include "AbstractQList.hpp"
+#ifndef __QUEST_PC2_HPP
+#define __QUEST_PC2_HPP
+namespace quest{
+class Quest_Mob(AbstractQList){
+public:
+    Quest_Mob();
+    const char* name="mob";
+    static const luaL_reg[] reg= {
+        { "get_pc_vid", get_pc_vid},
+        { "get_pc_pid", get_pc_pid},
+        { "get_level", get_level},
+        { NULL, NULL }
+    };
+    int get_pc_vid(lua_State* L);
+
+};
+}
+#endif // __QUEST_PC2_HPP
+
+#endif // __QUEST_MOB_HPP

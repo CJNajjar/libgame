@@ -1,0 +1,52 @@
+#ifndef __QUEST_MOB_HPP
+#define __QUEST_MOB_HPP
+#include "AbstractQList.hpp"
+#ifndef __QUEST_PC2_HPP
+#define __QUEST_PC2_HPP
+namespace quest{
+class Quest_Mob: public AbstractQList{
+public:
+    Quest_Mob();
+    const char* name="mob";
+    int get_vnum(lua_State* L);
+    int get_type(lua_State* L);
+    int get_rank(lua_State* L);
+    int get_exp(lua_State* L);
+    int get_level(lua_State* L);
+    int get_str(lua_State* L);
+    int get_dex(lua_State* L);
+    int get_con(lua_State* L);
+    int get_int(lua_State* L);
+    int get_max_hp(lua_State* L);
+    int get_summon_vnum(lua_State* L);
+    int get_regen_cycle(lua_State* L);
+    int get_regen_percent(lua_State* L);
+    int get_def(lua_State* L);
+    int set_def(lua_State* L);
+    int get_damage_multiply(lua_State* L);
+    int set_damage_multiply(lua_State* L);
+    static const luaL_reg reg[]= {
+        { "get_vnum", get_vnum},
+        { "get_type", get_type},
+        { "get_rank", get_rank},
+        { "get_exp", get_exp},
+        { "get_level", get_level},
+        { "get_str", get_str},
+        { "get_dex", get_dex},
+        { "get_con", get_con},
+        { "get_int", get_int},
+        { "get_max_hp", get_max_hp},
+        { "get_summon_vnum", get_summon_vnum},
+        { "get_regen_cycle", get_regen_cycle},
+        { "get_regen_percent", get_regen_percent},
+        { "get_def", get_def},
+        { "set_def", set_def},
+        { "get_damage_multiply", get_damage_multiply},
+        { "set_damage_multiply", set_damage_multiply},
+        { NULL, NULL }
+    };
+};
+}
+#endif // __QUEST_PC2_HPP
+
+#endif // __QUEST_MOB_HPP

@@ -1,0 +1,9 @@
+#ifndef __HOOK_HPP
+#define __HOOK_HPP
+class Hook {
+    public:
+        Hook();
+        void init();
+    
+};
+#endif // __HOOK_HPP

@@ -1,0 +1,17 @@
+#include "../addr.hpp"
+#include "../gameinfo.hpp"
+#ifndef __CHARACTER_MANAGER_HPP
+#define __CHARACTER_MANAGER_HPP
+namespace CHARACTER_MANAGER
+{
+typedef GameFunc::CHARACTER* (*tFindPC)(char*, char const*);
+tFindPC FindPC = (tFindPC)Addr::kFindPC;
+
+typedef GameFunc::CHARACTER* (*tDestroyCharacter)(char*, GameFunc::CHARACTER*);
+extern tDestroyCharacter DestroyCharacter = (tDestroyCharacter)Addr::kDestroyCharacter;
+
+/*  LPCHARACTER CHARACTER_MANAGER::SpawnMob(char*, unsigned int dwVnum, long lMapIndex, long x, long y, long z, bool bSpawnMotion, int iRot, bool bShow); */
+typedef GameFunc::CHARACTER * (*tSpawnMob)(char*,unsigned int, long, long, long, long, bool, int, bool);
+extern tSpawnMob SpawnMob;
+}
+#endif // __CHARACTER_MANAGER_HPP

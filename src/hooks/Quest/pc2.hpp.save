@@ -1,0 +1,19 @@
+#ifndef __QUEST_PC2_HPP
+#define __QUEST_PC2_HPP
+#include "AbstractQList.hpp"
+#include "../../func/CHARACTER.hpp"
+namespace quest{
+class Quest_PC2{
+public:
+    Quest_PC2();
+    const char* name="pc2";
+    static int get_special_slot(lua_State* L);
+    static int get_wear(lua_State* L);
+    static const luaL_reg reg[3]= {
+        { "get_special_slot", get_special_slot},
+        { "get_wear", get_wear},
+        { NULL, NULL }
+    };
+};
+}
+#endif // __QUEST_PC2_HPP

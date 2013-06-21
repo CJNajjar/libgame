@@ -1,0 +1,20 @@
+#include "AbstractQList.hpp"
+#ifndef __QUEST_NPC2_HPP
+#define __QUEST_NPC2_HPP
+namespace quest{
+class Quest_NPC2: public AbstractQList{
+public:
+    Quest_NPC2();
+    const char* name="npc2";
+    static int get_pc_vid(lua_State* L);
+    int get_pc_pid(lua_State* L);
+    int get_level(lua_State* L);
+    static const luaL_reg reg[4]= {
+        { "get_pc_vid", get_pc_vid},
+        { "get_pc_pid", get_pc_pid},
+        { "get_level", get_level},
+        { NULL, NULL }
+    };
+};
+}
+#endif // __QUEST_NPC2_HPP

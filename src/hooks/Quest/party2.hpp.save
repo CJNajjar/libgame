@@ -1,0 +1,21 @@
+#ifndef __QUEST_MOB_HPP
+#define __QUEST_MOB_HPP
+#include "AbstractQList.hpp"
+#ifndef __QUEST_PC2_HPP
+#define __QUEST_PC2_HPP
+namespace quest{
+class Quest_Party2(AbstractQList){
+public:
+    Quest_Mob();
+    const char* name="party2";
+    static const luaL_reg[] reg= {
+
+        { NULL, NULL }
+    };
+    int get_vnum(lua_State* L);
+
+};
+}
+#endif // __QUEST_PC2_HPP
+
+#endif // __QUEST_MOB_HPP

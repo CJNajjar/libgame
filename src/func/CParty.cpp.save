@@ -1,0 +1,4 @@
+#include "CParty.hpp"
+namespace CParty{
+
+}

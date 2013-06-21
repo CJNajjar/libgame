@@ -1,0 +1,558 @@
+# depslib dependency file v1.0
+1361754976 source:d:\work\libgame\src\utils\hde32.cpp
+	<stdint.h>
+	<string.h>
+	"hde32.h"
+	"table32.h"
+
+1320587974 d:\work\libgame\src\utils\hde32.h
+	<stdint.h>
+
+1320587974 d:\work\libgame\src\utils\table32.h
+
+1368699325 source:d:\work\libgame\src\main.cpp
+	"gameinfo.hpp"
+	"utils/detours.h"
+
+1368699852 d:\work\libgame\src\gameinfo.hpp
+	<iomanip>
+	<iostream>
+	<fstream>
+	<sstream>
+	<functional>
+	<string>
+	<vector>
+	<map>
+	<list>
+	<queue>
+	<set>
+	<stdexcept>
+	<cassert>
+	<cstdint>
+	<cstdio>
+	<cstdarg>
+	<cstring>
+	<ctime>
+	<cmath>
+	<algorithm>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<arpa/inet.h>
+	<stdint.h>
+	<pthread.h>
+	<boost/unordered_map.hpp>
+	<boost/unordered_set.hpp>
+	<boost/functional/hash.hpp>
+	<boost/algorithm/string.hpp>
+	<boost/algorithm/string/concept.hpp>
+	<boost/algorithm/string/constants.hpp>
+	<boost/algorithm/string/erase.hpp>
+	<boost/algorithm/string/find.hpp>
+	<boost/algorithm/string/find_format.hpp>
+	<boost/algorithm/string/find_iterator.hpp>
+	<boost/foreach.hpp>
+	<boost/algorithm/string/finder.hpp>
+	<boost/algorithm/string/replace.hpp>
+	<boost/algorithm/string/std_containers_traits.hpp>
+	<boost/unordered/detail/unique.hpp>
+	<typeinfo>
+	"utils/lua.hpp"
+	"utils/mysql/mysql.h"
+	"addr.hpp"
+	<iterator>
+	<type_traits>
+
+1364782676 d:\work\libgame\src\utils\lua.hpp
+	"lua/lua.h"
+	"lua/lualib.h"
+	"lua/lauxlib.h"
+
+1365100340 d:\work\libgame\src\utils\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+
+1047993866 d:\work\libgame\src\utils\lua\lualib.h
+	"lua.h"
+
+1365100396 d:\work\libgame\src\utils\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1366762833 d:\work\libgame\src\addr.hpp
+
+1367508110 d:\work\libgame\src\utils\detours.h
+	<stdint.h>
+	"hde.h"
+	<stdexcept>
+	<cstring>
+	<Windows.h>
+	<sys/mman.h>
+	<unistd.h>
+
+1367507655 d:\work\libgame\src\utils\hde.h
+	"hde/hde32.h"
+
+1345116913 d:\work\libgame\src\utils\mysql\mysql.h
+	<standards.h>
+	<sys/types.h>
+	<winsock2.h>
+	"mysql_version.h"
+	"mysql_com.h"
+	"mysql_time.h"
+	"my_list.h"
+	"typelib.h"
+	"my_alloc.h"
+
+1345116913 d:\work\libgame\src\utils\mysql\mysql_version.h
+	<custom_conf.h>
+
+1345116913 d:\work\libgame\src\utils\mysql\mysql_com.h
+
+1345116913 d:\work\libgame\src\utils\mysql\mysql_time.h
+
+1345116913 d:\work\libgame\src\utils\mysql\my_list.h
+
+1345116913 d:\work\libgame\src\utils\mysql\typelib.h
+	"my_alloc.h"
+
+1345116913 d:\work\libgame\src\utils\mysql\my_alloc.h
+
+1361754976 source:d:\work\libgame\src\utils\hde32.c
+	<stdint.h>
+	<string.h>
+	"hde32.h"
+	"table32.h"
+
+1363980520 source:d:\work\libgame\src\class\logger.cpp
+	"logger.h"
+
+1363986845 d:\work\libgame\src\class\logger.h
+	<cstdint>
+	<cstdio>
+	<fstream>
+
+1320587974 d:\work\libgame\src\utils\hde\hde32.h
+	<stdint.h>
+
+1361754976 source:d:\work\libgame\src\utils\hde\hde32.c
+	<stdint.h>
+	<string.h>
+	"hde32.h"
+	"table32.h"
+
+1320587974 d:\work\libgame\src\utils\hde\table32.h
+
+1371766416 source:d:\m2\libgame\src\main.cpp
+	"gameinfo.hpp"
+	"utils/detours.h"
+	"func/CEntity.hpp"
+	"func/CHARACTER.hpp"
+	"func/CHARACTER_MANAGER.hpp"
+	"func/CItem.hpp"
+	"func/CInputMain.hpp"
+	"func/ITEM_MANAGER.hpp"
+	"func/Command.hpp"
+	"func/CParty.hpp"
+	"func/CShop.hpp"
+	"func/DBManager.hpp"
+	"func/DESC.hpp"
+	"func/General.hpp"
+	"func/libMySQL.hpp"
+	"func/Lua.hpp"
+	"func/quest.hpp"
+	"func/CQuestManager.hpp"
+	"func/CAsyncSQL.hpp"
+	"hooks/Quest.hpp"
+	"hooks/CharacterDestroy.hpp"
+	"hooks/CharacterConstructor.hpp"
+	"hooks/SyncPos.hpp"
+
+1371432566 d:\m2\libgame\src\gameinfo.hpp
+	<iomanip>
+	<iostream>
+	<fstream>
+	<sstream>
+	<functional>
+	<string>
+	<vector>
+	<map>
+	<list>
+	<queue>
+	<set>
+	<stdexcept>
+	<cassert>
+	<cstdint>
+	<cstdio>
+	<cstdarg>
+	<cstring>
+	<ctime>
+	<cmath>
+	<algorithm>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<arpa/inet.h>
+	<stdint.h>
+	<pthread.h>
+	<boost/unordered_map.hpp>
+	<boost/unordered_set.hpp>
+	<boost/functional/hash.hpp>
+	<boost/algorithm/string.hpp>
+	<boost/algorithm/string/concept.hpp>
+	<boost/algorithm/string/constants.hpp>
+	<boost/algorithm/string/erase.hpp>
+	<boost/algorithm/string/find.hpp>
+	<boost/algorithm/string/find_format.hpp>
+	<boost/algorithm/string/find_iterator.hpp>
+	<boost/foreach.hpp>
+	<boost/algorithm/string/finder.hpp>
+	<boost/algorithm/string/replace.hpp>
+	<boost/algorithm/string/std_containers_traits.hpp>
+	<boost/unordered/detail/unique.hpp>
+	<typeinfo>
+	"utils/lua.hpp"
+	"utils/mysql/mysql.h"
+	"addr.hpp"
+	<iterator>
+	<type_traits>
+
+1364782676 d:\m2\libgame\src\utils\lua.hpp
+	"lua/lua.h"
+	"lua/lualib.h"
+	"lua/lauxlib.h"
+
+1365100340 d:\m2\libgame\src\utils\lua\lua.h
+	<stdarg.h>
+	<stddef.h>
+
+1047993866 d:\m2\libgame\src\utils\lua\lualib.h
+	"lua.h"
+
+1365100396 d:\m2\libgame\src\utils\lua\lauxlib.h
+	<stddef.h>
+	<stdio.h>
+	"lua.h"
+
+1345116913 d:\m2\libgame\src\utils\mysql\mysql.h
+	<standards.h>
+	<sys/types.h>
+	<winsock2.h>
+	"mysql_version.h"
+	"mysql_com.h"
+	"mysql_time.h"
+	"my_list.h"
+	"typelib.h"
+	"my_alloc.h"
+
+1345116913 d:\m2\libgame\src\utils\mysql\mysql_version.h
+	<custom_conf.h>
+
+1345116913 d:\m2\libgame\src\utils\mysql\mysql_com.h
+
+1345116913 d:\m2\libgame\src\utils\mysql\mysql_time.h
+
+1345116913 d:\m2\libgame\src\utils\mysql\my_list.h
+
+1345116913 d:\m2\libgame\src\utils\mysql\typelib.h
+	"my_alloc.h"
+
+1345116913 d:\m2\libgame\src\utils\mysql\my_alloc.h
+
+1371657893 d:\m2\libgame\src\addr.hpp
+	"addr/2089.hpp"
+	"addr/2089M.hpp"
+
+1369765955 d:\m2\libgame\src\utils\detours.h
+	<stdint.h>
+	"hde.h"
+	<stdexcept>
+	<cstring>
+	<Windows.h>
+	<sys/mman.h>
+	<unistd.h>
+
+1367507655 d:\m2\libgame\src\utils\hde.h
+	"hde/hde32.h"
+
+1370034296 d:\m2\libgame\src\utils\hde\hde32.h
+	<stdint.h>
+
+1361754976 source:d:\m2\libgame\src\utils\hde\hde32.c
+	<stdint.h>
+	<string.h>
+	"hde32.h"
+	"table32.h"
+
+1320587974 d:\m2\libgame\src\utils\hde\table32.h
+
+1369933994 source:d:\m2\libgame\src\general.cpp
+	"general.hpp"
+
+1369934030 d:\m2\libgame\src\general.hpp
+	"addr.hpp"
+	"gameinfo.hpp"
+	"utils/detours.h"
+
+1369930456 d:\m2\libgame\src\character.hpp
+	"general.hpp"
+
+1369930626 source:d:\m2\libgame\src\gameinfo.cpp
+	"gameinfo.hpp"
+
+1370012736 source:d:\m2\libgame\src\func\quest__cquestmanager.c
+
+1370212236 d:\m2\libgame\src\func\centity.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1371055226 d:\m2\libgame\src\func\character.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1371040038 d:\m2\libgame\src\func\character_manager.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212249 d:\m2\libgame\src\func\citem.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1371306419 d:\m2\libgame\src\func\cinputmain.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370210907 d:\m2\libgame\src\func\item_manager.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370260642 d:\m2\libgame\src\func\command.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212254 d:\m2\libgame\src\func\cparty.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212264 d:\m2\libgame\src\func\cshop.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212274 d:\m2\libgame\src\func\dbmanager.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212276 d:\m2\libgame\src\func\desc.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1371307037 d:\m2\libgame\src\func\general.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212284 d:\m2\libgame\src\func\libmysql.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370212292 d:\m2\libgame\src\func\lua.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370211294 d:\m2\libgame\src\func\quest.hpp
+	"../gameinfo.hpp"
+	"CQuestManager.hpp"
+	"General.hpp"
+
+1370276201 d:\m2\libgame\src\func\cquestmanager.hpp
+	"../gameinfo.hpp"
+	"../addr.hpp"
+
+1370212233 d:\m2\libgame\src\func\casyncsql.hpp
+	"../addr.hpp"
+	"../gameinfo.hpp"
+
+1370817459 source:d:\m2\libgame\src\hooks\quest\party2.cpp
+	"party2.hpp"
+
+1370376021 d:\m2\libgame\src\hooks\quest\party2.hpp
+	"AbstractQList.hpp"
+	"../../func/CParty.hpp"
+	"../../func/CHARACTER.hpp"
+
+1370275572 d:\m2\libgame\src\hooks\quest\abstractqlist.hpp
+	"../../addr.hpp"
+	"../../gameinfo.hpp"
+	"../../func/Lua.hpp"
+	"../../func/quest.hpp"
+
+1370276503 source:d:\m2\libgame\src\func\casyncsql.cpp
+	"CAsyncSQL.hpp"
+
+1370276512 source:d:\m2\libgame\src\func\centity.cpp
+	"CEntity.hpp"
+
+1371037473 source:d:\m2\libgame\src\func\character.cpp
+	"CHARACTER.hpp"
+
+1371015049 source:d:\m2\libgame\src\func\character_manager.cpp
+	"CHARACTER_MANAGER.hpp"
+
+1370276531 source:d:\m2\libgame\src\func\citem.cpp
+	"CItem.hpp"
+
+1370276535 source:d:\m2\libgame\src\func\command.cpp
+	"Command.hpp"
+
+1370276539 source:d:\m2\libgame\src\func\cparty.cpp
+	"CParty.hpp"
+
+1370276396 source:d:\m2\libgame\src\func\cquestmanager.cpp
+	"CQuestManager.hpp"
+
+1370269678 source:d:\m2\libgame\src\func\dbmanager.cpp
+	"DBManager.hpp"
+
+1370276496 source:d:\m2\libgame\src\func\desc.cpp
+	"DESC.hpp"
+
+1370210762 source:d:\m2\libgame\src\func\general.cpp
+	"General.hpp"
+
+1370276488 source:d:\m2\libgame\src\func\item_manager.cpp
+	"ITEM_MANAGER.hpp"
+
+1370276471 source:d:\m2\libgame\src\func\libmysql.cpp
+	"libMySQL.hpp"
+
+1370276477 source:d:\m2\libgame\src\func\lua.cpp
+	"Lua.hpp"
+
+1370276462 source:d:\m2\libgame\src\func\quest.cpp
+	"quest.hpp"
+
+1371766595 source:d:\m2\libgame\src\hooks\quest.cpp
+	"Quest.hpp"
+
+1370610787 d:\m2\libgame\src\hooks\quest.hpp
+	"Hook.hpp"
+	"../addr.hpp"
+	"../gameinfo.hpp"
+	"Quest/pc2.hpp"
+	"Quest/npc2.hpp"
+	"Quest/mob.hpp"
+	"Quest/party2.hpp"
+	"Quest/d2.hpp"
+	"Quest/pet.hpp"
+	"Quest/mysql.hpp"
+	"Quest/horse2.hpp"
+	"../func/quest.hpp"
+	"../func/CQuestManager.hpp"
+	"../func/General.hpp"
+	"../func/CHARACTER.hpp"
+
+1370212419 d:\m2\libgame\src\hooks\hook.hpp
+	"../utils/detours.h"
+
+1370376011 d:\m2\libgame\src\hooks\quest\pc2.hpp
+	"AbstractQList.hpp"
+	"../../func/CHARACTER.hpp"
+
+1370376020 d:\m2\libgame\src\hooks\quest\npc2.hpp
+	"AbstractQList.hpp"
+
+1370376012 d:\m2\libgame\src\hooks\quest\mob.hpp
+	"AbstractQList.hpp"
+
+1370376017 d:\m2\libgame\src\hooks\quest\d2.hpp
+	"AbstractQList.hpp"
+	"../../func/CHARACTER.hpp"
+
+1370376018 d:\m2\libgame\src\hooks\quest\mysql.hpp
+	"AbstractQList.hpp"
+	"../../func/DBManager.hpp"
+	"../../func/libMySQL.hpp"
+	"../../func/General.hpp"
+
+1370376016 d:\m2\libgame\src\hooks\quest\horse2.hpp
+	"AbstractQList.hpp"
+	"../../addr.hpp"
+	"../../gameinfo.hpp"
+	"../../func/Lua.hpp"
+	"../../func/quest.hpp"
+	"../../func/CHARACTER.hpp"
+	"../../func/CHARACTER_MANAGER.hpp"
+
+1370375691 source:d:\m2\libgame\src\hooks\quest\d2.cpp
+	"d2.hpp"
+
+1370608137 source:d:\m2\libgame\src\hooks\quest\horse2.cpp
+	"horse2.hpp"
+
+1370376149 source:d:\m2\libgame\src\hooks\quest\mob.cpp
+	"mob.hpp"
+
+1370375789 source:d:\m2\libgame\src\hooks\quest\mysql.cpp
+	"mysql.hpp"
+
+1370376671 source:d:\m2\libgame\src\hooks\quest\npc2.cpp
+	"npc2.hpp"
+
+1370374792 source:d:\m2\libgame\src\hooks\quest\pc2.cpp
+	"pc2.hpp"
+
+1370269867 source:d:\m2\libgame\src\hooks\quest\abstractqlist.cpp
+	"AbstractQList.hpp"
+
+1370375560 source:d:\m2\libgame\src\hooks\hook.cpp
+	"Hook.hpp"
+
+1371777806 source:d:\m2\libgame\src\hooks\characterdestroy.cpp
+	"CharacterDestroy.hpp"
+
+1371777853 d:\m2\libgame\src\hooks\characterdestroy.hpp
+	"Hook.hpp"
+	"../addr.hpp"
+	"../gameinfo.hpp"
+	"../func/General.hpp"
+	"../func/CHARACTER.hpp"
+	"../func/CHARACTER_MANAGER.hpp"
+
+1371412875 source:d:\m2\libgame\src\hooks\quest\pet.cpp
+	"pet.hpp"
+
+1370610852 d:\m2\libgame\src\hooks\quest\pet.hpp
+	"AbstractQList.hpp"
+	"../../func/CHARACTER.hpp"
+	"../../func/CHARACTER_MANAGER.hpp"
+
+1371776978 source:d:\m2\libgame\src\hooks\syncpos.cpp
+	"SyncPos.hpp"
+
+1371338114 d:\m2\libgame\src\hooks\syncpos.hpp
+	"Hook.hpp"
+	"../addr.hpp"
+	"../gameinfo.hpp"
+	"../func/General.hpp"
+	"../func/CHARACTER.hpp"
+	"../func/CHARACTER_MANAGER.hpp"
+	"../func/CInputMain.hpp"
+	"../func/CEntity.hpp"
+
+1370816916 d:\m2\libgame\src\hooks\characterconstructor.hpp
+	"Hook.hpp"
+	"../addr.hpp"
+	"../gameinfo.hpp"
+	"../func/General.hpp"
+	"../func/CHARACTER.hpp"
+	"../func/CHARACTER_MANAGER.hpp"
+
+1371336728 source:d:\m2\libgame\src\hooks\characterconstructor.cpp
+	"CharacterConstructor.hpp"
+
+1371661717 d:\m2\libgame\src\addr\2089.hpp
+
+1371657959 d:\m2\libgame\src\addr\2089m.hpp
+

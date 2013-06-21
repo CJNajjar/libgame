@@ -1,0 +1,20 @@
+#include "mob.hpp"
+namespace quest{
+int get_vnum(lua_State* L);
+int get_type(lua_State* L);
+int get_rank(lua_State* L);
+int get_exp(lua_State* L);
+int get_level(lua_State* L);
+int get_str(lua_State* L);
+int get_dex(lua_State* L);
+int get_con(lua_State* L);
+int get_int(lua_State* L);
+int get_max_hp(lua_State* L);
+int get_summon_vnum(lua_State* L);
+int get_regen_cycle(lua_State* L);
+int get_regen_percent(lua_State* L);
+int get_def(lua_State* L);
+int set_def(lua_State* L);
+int get_damage_multiply(lua_State* L);
+int set_damage_multiply(lua_State* L);
+}

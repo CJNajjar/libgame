@@ -1,0 +1,21 @@
+#ifndef __QUEST_MYSQL_HPP
+#define __QUEST_MYSQL_HPP
+#include "AbstractQList.hpp"
+namespace quest{
+class Quest_MySQL: public AbstractQList{
+public:
+    Quest_MySQL();
+    const char* name="mysql";
+    static int query(lua_State* L);
+    static int escape(lua_State* L);
+    static con const luaL_reg reg[3]= {
+        { "query", query},
+        { "escape",escape},
+        { NULL, NULL }
+    };
+
+};
+}
+#endif // __QUEST_MYSQL_HPP
+
+

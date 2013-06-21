@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GameExt" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc_uniwin" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/libgame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="1" />
+				<Option compiler="gcc_uniwin" />
+				<Compiler>
+					<Add option="-fPIC -gdwarf-2 -fpermissive -std=c++11 -g" />
+				</Compiler>
+				<Linker>
+					<Add option="-shared -lpthread -Wl,-soname=libgame.so" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="src/addr.hpp" />
+		<Unit filename="src/addr/2089.hpp" />
+		<Unit filename="src/addr/2089M.hpp" />
+		<Unit filename="src/func/CAsyncSQL.cpp" />
+		<Unit filename="src/func/CAsyncSQL.hpp" />
+		<Unit filename="src/func/CEntity.cpp" />
+		<Unit filename="src/func/CEntity.hpp" />
+		<Unit filename="src/func/CHARACTER.cpp" />
+		<Unit filename="src/func/CHARACTER.hpp" />
+		<Unit filename="src/func/CHARACTER_MANAGER.cpp" />
+		<Unit filename="src/func/CHARACTER_MANAGER.hpp" />
+		<Unit filename="src/func/CInputMain.hpp" />
+		<Unit filename="src/func/CItem.cpp" />
+		<Unit filename="src/func/CItem.hpp" />
+		<Unit filename="src/func/CParty.cpp" />
+		<Unit filename="src/func/CParty.hpp" />
+		<Unit filename="src/func/CQuestManager.cpp" />
+		<Unit filename="src/func/CQuestManager.hpp" />
+		<Unit filename="src/func/CShop.hpp" />
+		<Unit filename="src/func/Command.cpp" />
+		<Unit filename="src/func/Command.hpp" />
+		<Unit filename="src/func/DBManager.cpp" />
+		<Unit filename="src/func/DBManager.hpp" />
+		<Unit filename="src/func/DESC.cpp" />
+		<Unit filename="src/func/DESC.hpp" />
+		<Unit filename="src/func/General.cpp" />
+		<Unit filename="src/func/General.hpp" />
+		<Unit filename="src/func/ITEM_MANAGER.cpp" />
+		<Unit filename="src/func/ITEM_MANAGER.hpp" />
+		<Unit filename="src/func/Lua.cpp" />
+		<Unit filename="src/func/Lua.hpp" />
+		<Unit filename="src/func/libMySQL.cpp" />
+		<Unit filename="src/func/libMySQL.hpp" />
+		<Unit filename="src/func/quest.cpp" />
+		<Unit filename="src/func/quest.hpp" />
+		<Unit filename="src/gameinfo.cpp" />
+		<Unit filename="src/gameinfo.hpp" />
+		<Unit filename="src/hooks/CharacterConstructor.cpp" />
+		<Unit filename="src/hooks/CharacterConstructor.hpp" />
+		<Unit filename="src/hooks/CharacterDestroy.cpp" />
+		<Unit filename="src/hooks/CharacterDestroy.hpp" />
+		<Unit filename="src/hooks/Hook.cpp" />
+		<Unit filename="src/hooks/Hook.hpp" />
+		<Unit filename="src/hooks/Quest.cpp" />
+		<Unit filename="src/hooks/Quest.hpp" />
+		<Unit filename="src/hooks/Quest/AbstractQList.cpp" />
+		<Unit filename="src/hooks/Quest/AbstractQList.hpp" />
+		<Unit filename="src/hooks/Quest/d2.cpp" />
+		<Unit filename="src/hooks/Quest/d2.hpp" />
+		<Unit filename="src/hooks/Quest/horse2.cpp" />
+		<Unit filename="src/hooks/Quest/horse2.hpp" />
+		<Unit filename="src/hooks/Quest/mob.cpp" />
+		<Unit filename="src/hooks/Quest/mob.hpp" />
+		<Unit filename="src/hooks/Quest/mysql.cpp" />
+		<Unit filename="src/hooks/Quest/mysql.hpp" />
+		<Unit filename="src/hooks/Quest/npc2.cpp" />
+		<Unit filename="src/hooks/Quest/npc2.hpp" />
+		<Unit filename="src/hooks/Quest/party2.cpp" />
+		<Unit filename="src/hooks/Quest/party2.hpp" />
+		<Unit filename="src/hooks/Quest/pc2.cpp" />
+		<Unit filename="src/hooks/Quest/pc2.hpp" />
+		<Unit filename="src/hooks/Quest/pet.cpp" />
+		<Unit filename="src/hooks/Quest/pet.hpp" />
+		<Unit filename="src/hooks/SyncPos.cpp" />
+		<Unit filename="src/hooks/SyncPos.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/utils/detours.h" />
+		<Unit filename="src/utils/hde.h" />
+		<Unit filename="src/utils/hde/hde32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils/hde/hde32.h" />
+		<Unit filename="src/utils/hde/table32.h" />
+		<Unit filename="src/utils/lua.hpp" />
+		<Unit filename="src/utils/lua/lauxlib.h" />
+		<Unit filename="src/utils/lua/lua.h" />
+		<Unit filename="src/utils/lua/lualib.h" />
+		<Unit filename="src/utils/mysql/decimal.h" />
+		<Unit filename="src/utils/mysql/errmsg.h" />
+		<Unit filename="src/utils/mysql/keycache.h" />
+		<Unit filename="src/utils/mysql/m_ctype.h" />
+		<Unit filename="src/utils/mysql/m_string.h" />
+		<Unit filename="src/utils/mysql/my_alloc.h" />
+		<Unit filename="src/utils/mysql/my_attribute.h" />
+		<Unit filename="src/utils/mysql/my_compiler.h" />
+		<Unit filename="src/utils/mysql/my_config.h" />
+		<Unit filename="src/utils/mysql/my_dbug.h" />
+		<Unit filename="src/utils/mysql/my_dir.h" />
+		<Unit filename="src/utils/mysql/my_getopt.h" />
+		<Unit filename="src/utils/mysql/my_global.h" />
+		<Unit filename="src/utils/mysql/my_list.h" />
+		<Unit filename="src/utils/mysql/my_net.h" />
+		<Unit filename="src/utils/mysql/my_no_pthread.h" />
+		<Unit filename="src/utils/mysql/my_pthread.h" />
+		<Unit filename="src/utils/mysql/my_sys.h" />
+		<Unit filename="src/utils/mysql/my_xml.h" />
+		<Unit filename="src/utils/mysql/mysql.h" />
+		<Unit filename="src/utils/mysql/mysql_com.h" />
+		<Unit filename="src/utils/mysql/mysql_embed.h" />
+		<Unit filename="src/utils/mysql/mysql_time.h" />
+		<Unit filename="src/utils/mysql/mysql_version.h" />
+		<Unit filename="src/utils/mysql/mysqld_ername.h" />
+		<Unit filename="src/utils/mysql/mysqld_error.h" />
+		<Unit filename="src/utils/mysql/plugin.h" />
+		<Unit filename="src/utils/mysql/sql_common.h" />
+		<Unit filename="src/utils/mysql/sql_state.h" />
+		<Unit filename="src/utils/mysql/sslopt-case.h" />
+		<Unit filename="src/utils/mysql/sslopt-longopts.h" />
+		<Unit filename="src/utils/mysql/sslopt-vars.h" />
+		<Unit filename="src/utils/mysql/typelib.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
