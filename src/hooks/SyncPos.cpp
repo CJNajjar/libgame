@@ -92,7 +92,7 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
     if (bCount>0){
         // type
         *(buffer)=(char)5;
-        // size
+        //  size
         *(buffer+1)=(short)(3+0xC*bCount);
         CEntity::PacketAround(ch,buffer,3+0xC*bCount,ch);
     }

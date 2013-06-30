@@ -33,7 +33,7 @@ void Quest::init(){
 }
 void Quest::hook(){
     Quest* i = Quest::instance();
-    AddLuaFunctionTable(*singleton_CQuestManager, i->pc2->name, i->pc2->reg);
+    AddLuaFunctionTable(*singleton_CQuestManager, i->pc2->name, i->pc2->reg) ;
     AddLuaFunctionTable(*singleton_CQuestManager, i->npc2->name, i->npc2->reg);
     AddLuaFunctionTable(*singleton_CQuestManager, i->mob->name, i->mob->reg);
     AddLuaFunctionTable(*singleton_CQuestManager, i->party2->name, i->party2->reg);
