@@ -1,2 +1,4 @@
 *.save
 *.cbTemp
+GameExt.depend
+GameExt.layout
