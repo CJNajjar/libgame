@@ -435,8 +435,7 @@ void lib_main()
     if (RIGHTREV){
         std::cout << "*** Game Revision is " << Revision << std::endl;
         std::cout << "*** sizeof CHARACTER is " << sizeof(GameFunc::CHARACTER) << std::endl;
-        try
-        {
+        try{
             quest::Quest::instance()->init();
             CInputMain::HSyncPos::instance()->init();
             CHARACTER::CharacterDestroy::instance()->init();
