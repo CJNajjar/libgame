@@ -33,7 +33,10 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
     char* selfBuffer = new char[3+0xC*16];
     char* sbBase=buffer+3;
     short sbCount=0;
-
+    for (int i=0;i<3+0xC*16;i++){
+        selfBuffer[i]=0;
+        buffer[i]=0;
+    }
     const char* curAddr=data+3;
     GameFunc::CHARACTER* chTarget;
     DWORD target;
@@ -63,10 +66,11 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
                     if (chTarget->m_fSyncDist>=25.0){
                         SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " already) - skipping - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
                         *(DWORD*)(sbBase)=target;
-                        *(DWORD*)(sbBase+4)=chTarget->m_pos.x;
-                        *(DWORD*)(sbBase+8)=chTarget->m_pos.y;
-                        sbBase+=0xc;
+                        *(DWORD*)(sbBase+4)=(DWORD)chTarget->m_pos.x;
+                        *(DWORD*)(sbBase+8)=(DWORD)chTarget->m_pos.y;
+                        sbBase+=0xC;
                         sbCount++;
+                        chTarget->m_fSyncDist+=dist;
                         continue;
                     }
                     SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " + " << dist << ") - limiting - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
@@ -79,10 +83,11 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
                     px -=(int)((x-xN*allowedDist)*100);
                     py -=(int)((y-yN*allowedDist)*100);
                 }
+                chTarget->m_fSyncDist+=dist;
                 *(DWORD*)(bBase)=target;
                 *(DWORD*)(bBase+4)=(DWORD)px;
                 *(DWORD*)(bBase+8)=(DWORD)py;
-                bBase+=0xc;
+                bBase+=0xC;
                 bCount++;
                 CHARACTER::Sync(chTarget,(long)px,(long)py);
             }
@@ -104,6 +109,8 @@ int HSyncPos::hook(char * self, GameFunc::CHARACTER* ch , const char* data, size
         *(short*)(selfBuffer+1)=(short)(3+0xC*sbCount);
         CEntity::PacketAround(ch,selfBuffer,(short)(3+0xC*sbCount),nullptr);
     }
+    delete buffer;
+    delete selfBuffer;
     return len-3;
 }
 
