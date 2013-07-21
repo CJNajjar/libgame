@@ -1,49 +1,49 @@
-#define GAME_REV 1
 #include "utils/detours.h"
-#include "game/CHARACTER.hpp"
-#if GAME_REV==1
-std::string Revision((char*)0x8367B5C, 5);
-bool RIGHTREV=Revision=="2089M";
-#elif GAME_REV==2
-std::string Revision((char*)0x836823C, 5);
-bool RIGHTREV=Revision=="2089";
-#endif
-int Version = 1;
-bool GameInitialized = 0;
+#include "game/stdInclude.hpp"
+#include <iostream>
+#include <fstream>
+#include "hooks/SyncPosition.hpp"
+#include "addr.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 
+std::string Revision((char*)Addr::misc::version,5);
+bool RIGHTREV=Revision=="34083";
 
-template<int N>
-struct print_size_as_warning
-{
-    char operator()()
-    {
-        return N + 256;    //deliberately causing overflow
-    }
+
+const std::string CurrentDateTime(){
+    struct tm tstruct;
+    char buf[80];
+    time_t t;
+    time(&t);
+    tstruct = *localtime(&t);
+    strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
+
+    return buf;
 };
+
+std::ofstream slog("libgame.stdlog.txt", std::ios_base::app | std::ios_base::out);
+std::ofstream serr("libgame.stderr.txt", std::ios_base::app | std::ios_base::out);
+
+#define SYSLOG slog << CURDATE << ":" << __LINE__ << " :: "
+#define SYSERR serr << CURDATE << ":" << __LINE__ << " :: "
 
 void lib_main()
 {
-//print_size_as_warning<((int)(&((GameFunc::CItem*)0)->m_pOwner))>()();
-//    print_size_as_warning<sizeof(GameFunc::CHARACTER)>()();
-//    static_assert(sizeof(((GameFunc::CHARACTER*)0)->m_stateMove)> 40, "Wrong char class size" );
-    std::cout << std::endl << "****************** Starting Libgame ******************" << std::endl;
+    std::cout << std::endl << "****************** Starting LibGame ******************" << std::endl;
     if (RIGHTREV){
+        std::cout<<"sizeof(CHARACTER)" << sizeof(CHARACTER) <<std::endl;
         std::cout << "*** Game Revision is " << Revision << std::endl;
-        std::cout << "*** sizeof CHARACTER is " << sizeof(GameFunc::CHARACTER) << std::endl;
         try{
-
+            Hooks::SyncPosition* s=new Hooks::SyncPosition();
         }catch(MologieDetours::DetourException &e){
             std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
         }
-
         std::cout << "**** Hooking Phase completed!" << std::endl;
-
     }else{
         int i = 1;
         while(i != 10)
         {
-            std::cout << "FATAL !!!! Libgame is not compatible to this game revision !!!!" << std::endl;
+            std::cout << "FATAL !!!! LibGame is not compatible to this game revision !!!!" << std::endl;
             usleep(200);
             ++i;
         }

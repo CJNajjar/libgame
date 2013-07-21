@@ -3,6 +3,7 @@
 #include "stdInclude.hpp"
 #include "CEntity.hpp"
 #include "CAttribute.hpp"
+#include "fwDecl.hpp"
 class SECTREE;
 typedef SECTREE* LPSECTREE;
 

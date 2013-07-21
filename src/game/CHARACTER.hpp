@@ -24,6 +24,7 @@
 #include "CBuffOnAttributes.hpp"
 #include "SPlayerTable.hpp"
 #include "packet.hpp"
+#include "../addr.hpp"
 
 struct character_point {
     long points[255];
@@ -479,7 +480,7 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider {
     float GetRotation(void) const;
     void MotionPacketEncode(BYTE, LPCHARACTER, packet_motion *);
     void Motion(BYTE, LPCHARACTER);
-    void ChatPacket(BYTE, const char *, ...);
+    void ChatPacket(BYTE, const char *);
     void MonsterChat(BYTE);
     void SendGreetMessage(void);
     void ResetPoint(int);

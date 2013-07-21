@@ -1,8 +1,12 @@
 #ifndef _GAME_CINPUTPROCESSOR_HPP
 #define _GAME_CINPUTPROCESSOR_HPP
 #include "stdInclude.hpp"
-#include "DESC.hpp"
+//#include "DESC.hpp"
 #include "CPacketInfo.hpp"
+class DESC;
+typedef DESC* LPDESC;
+class CHARACTER;
+typedef CHARACTER* LPCHARACTER;
 class CInputProcessor {
   protected:
     CPacketInfo *m_pPacketInfo;

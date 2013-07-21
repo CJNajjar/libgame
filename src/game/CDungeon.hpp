@@ -2,7 +2,7 @@
 #define _GAME_CDUNGEON_HPP
 #include "stdInclude.hpp"
 #include "regen.hpp"
-
+#include "CHARACTER.hpp"
 class TAreaInfo {
     int sx;
     int sy;

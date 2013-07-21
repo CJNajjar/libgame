@@ -1,7 +1,7 @@
 #ifndef _GAME_CINPUTMAIN_HPP
 #define _GAME_CINPUTMAIN_HPP
 #include "CInputProcessor.hpp"
-#include "CHARACTER.hpp"
+
 class CInputMain : public CInputProcessor {
   public:
     virtual BYTE GetType(void);

@@ -1,6 +1,12 @@
 #ifndef _GAME_DESC_HPP
 #define _GAME_DESC_HPP
 #include "stdInclude.hpp"
+#include "FDWATCH.hpp"
+#include "Cipher.hpp"
+#include "BUFFER.hpp"
+#include "EVENT.hpp"
+#include "SAccountTable.hpp"
+#include "CLoginKey.hpp"
 #include "CInputProcessor.hpp"
 #include "CInputClose.hpp"
 #include "CInputHandshake.hpp"
@@ -8,14 +14,13 @@
 #include "CInputMain.hpp"
 #include "CInputDead.hpp"
 #include "CInputAuth.hpp"
-#include "FDWATCH.hpp"
-#include "Cipher.hpp"
-#include "BUFFER.hpp"
-#include "EVENT.hpp"
-#include "SAccountTable.hpp"
-#include "CLoginKey.hpp"
-class DESC;
-typedef DESC* LPDESC;
+class CInputProcessor;
+class CInputClose;
+class CInputHandshake;
+class CInputLogin;
+class CInputMain;
+class CInputDead;
+class CInputAuth;
 
 class DESC {
   protected:

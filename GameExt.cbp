@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="GameExt" />
+		<Option title="LibGame" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc_uniwin" />
 		<Build>
@@ -22,6 +22,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="src/addr.hpp" />
 		<Unit filename="src/game/BUFFER.hpp" />
 		<Unit filename="src/game/CAffect.hpp" />
 		<Unit filename="src/game/CArena.hpp" />
@@ -33,6 +34,7 @@
 		<Unit filename="src/game/CFSM.hpp" />
 		<Unit filename="src/game/CGrid.hpp" />
 		<Unit filename="src/game/CGuild.hpp" />
+		<Unit filename="src/game/CHARACTER.cpp" />
 		<Unit filename="src/game/CHARACTER.hpp" />
 		<Unit filename="src/game/CHorseRider.hpp" />
 		<Unit filename="src/game/CInputAuth.hpp" />
@@ -52,11 +54,7 @@
 		<Unit filename="src/game/CPetSystem.hpp" />
 		<Unit filename="src/game/CSafebox.hpp" />
 		<Unit filename="src/game/CShop.hpp" />
-		<Unit filename="src/game/CState.hpp">
-			<Option compilerVar="CC" />
-			<Option compile="1" />
-			<Option link="1" />
-		</Unit>
+		<Unit filename="src/game/CState.hpp" />
 		<Unit filename="src/game/CStateTemplate.hpp" />
 		<Unit filename="src/game/CTrigger.hpp" />
 		<Unit filename="src/game/CWarMap.hpp" />
@@ -68,6 +66,7 @@
 		<Unit filename="src/game/CryptoPP/secblock.h" />
 		<Unit filename="src/game/CryptoPP/smartptr.h" />
 		<Unit filename="src/game/CryptoPP/stdcpp.h" />
+		<Unit filename="src/game/DESC.cpp" />
 		<Unit filename="src/game/DESC.hpp" />
 		<Unit filename="src/game/EVENT.hpp" />
 		<Unit filename="src/game/FDWATCH.hpp" />
@@ -79,11 +78,17 @@
 		<Unit filename="src/game/SPlayerTable.hpp" />
 		<Unit filename="src/game/SSimplePlayer.hpp" />
 		<Unit filename="src/game/VID.hpp" />
+		<Unit filename="src/game/fwDecl.hpp" />
 		<Unit filename="src/game/marriage/WeddingMap.hpp" />
 		<Unit filename="src/game/misc.hpp" />
 		<Unit filename="src/game/packet.hpp" />
 		<Unit filename="src/game/regen.hpp" />
 		<Unit filename="src/game/stdInclude.hpp" />
+		<Unit filename="src/hooks/SyncPosition.cpp" />
+		<Unit filename="src/hooks/SyncPosition.hpp" />
+		<Unit filename="src/lib/hook.cpp" />
+		<Unit filename="src/lib/hook.hpp" />
+		<Unit filename="src/lib/singleton.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/utils/detours.h" />
 		<Unit filename="src/utils/hde.h" />
