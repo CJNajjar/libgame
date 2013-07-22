@@ -6,7 +6,7 @@
 #include <functional>
 #include <string>
 #include <vector>
-#include <unordered_map>
+//#include <unordered_map>
 #include <map>
 #include <list>
 #include <queue>
@@ -42,11 +42,13 @@
 #include <boost/algorithm/string/finder.hpp>
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/algorithm/string/std_containers_traits.hpp>
-#include <boost/unordered/detail/unique.hpp>
 #include <typeinfo>
 #include "../utils/lua.hpp"
 #include "../utils/mysql/mysql.h"
 #include <boost/intrusive_ptr.hpp>
+#include <tr1/unordered_set>
+
+
 class ENTITY;
 typedef ENTITY* LPENTITY;
 class CHARACTER;
@@ -59,4 +61,4 @@ class CParty;
 typedef CParty* LPPARTY;
 class CDungeon;
 typedef CDungeon* LPDUNGEON;
-typedef std::set<CHARACTER*,std::less<CHARACTER*>,std::allocator<CHARACTER*> > CHARACTER_SET;
+typedef  std::tr1::unordered_set<CHARACTER*, std::tr1::hash<CHARACTER*>, std::equal_to<CHARACTER*>, std::allocator<CHARACTER*>> CHARACTER_SET;

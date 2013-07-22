@@ -4,7 +4,7 @@
 #include <fstream>
 #include "hooks/SyncPosition.hpp"
 #include "addr.hpp"
-void __attribute__ ((constructor)) lib_main(void);
+int __attribute__ ((constructor)) lib_main(void);
 
 std::string Revision((char*)Addr::misc::version,5);
 bool RIGHTREV=Revision=="34083";
@@ -27,11 +27,14 @@ std::ofstream serr("libgame.stderr.txt", std::ios_base::app | std::ios_base::out
 #define SYSLOG slog << CURDATE << ":" << __LINE__ << " :: "
 #define SYSERR serr << CURDATE << ":" << __LINE__ << " :: "
 
-void lib_main()
+int lib_main()
 {
     std::cout << std::endl << "****************** Starting LibGame ******************" << std::endl;
     if (RIGHTREV){
         std::cout<<"sizeof(CHARACTER)" << sizeof(CHARACTER) <<std::endl;
+        std::cout<<"sizeof(CHARACTER::m_SkillDamageBonus)" << sizeof(CHARACTER::m_SkillDamageBonus) <<std::endl;
+        //std::cout<<"sizeof(std::unordered_map)" << sizeof(std::unordered_map<int,int>) <<std::endl;
+        //std::cout << "offset " << std::hex <<&(((CHARACTER *)0)->m_SkillDamageBonus) <<std::dec << std::endl;
         std::cout << "*** Game Revision is " << Revision << std::endl;
         try{
             Hooks::SyncPosition* s=new Hooks::SyncPosition();

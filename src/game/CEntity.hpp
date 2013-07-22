@@ -6,12 +6,12 @@
 class CEntity;
 typedef std::set<CEntity*,std::less<CEntity*>,std::allocator<CEntity*> > ENTITY_SET;
 #include "SECTREE.hpp"
-
+#include <tr1/unordered_map>
 class CEntity {
-  protected:
+  public:
     bool m_bIsObserver;
     bool m_bObserverModeChange;
-    std::map<CEntity*,int,std::less<CEntity*>,std::allocator<std::pair<CEntity* const, int> > > m_map_view;
+    std::tr1::unordered_map<CEntity*, int> m_map_view;
     long m_lMapIndex;
   private:
     LPDESC m_lpDesc;

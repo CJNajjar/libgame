@@ -1,7 +1,7 @@
 #ifndef _LIB_HOOK_HPP
 #define _LIB_HOOK_HPP
 #include "../utils/detours.h"
-#include "../db/stdInclude.hpp"
+#include "../game/stdInclude.hpp"
 template<typename TType,unsigned int TAddress,class T> class Hook{
 protected:
     MologieDetours::Detour<TType>* detour = NULL;

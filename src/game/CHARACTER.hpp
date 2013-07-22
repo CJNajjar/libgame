@@ -26,6 +26,7 @@
 #include "packet.hpp"
 #include "../addr.hpp"
 
+
 struct character_point {
     long points[255];
     BYTE job;
@@ -87,7 +88,7 @@ class TSkillUseInfo {
     bool bUsed;
     DWORD dwVID;
     bool isGrandMaster;
-    boost::unordered_map<VID, unsigned int, boost::hash<VID>, std::equal_to<VID>, std::allocator<std::pair<VID const, unsigned int> > > TargetVIDMap;
+    boost::unordered_map<VID, unsigned int > TargetVIDMap;
   public:
     TSkillUseInfo(void);
     bool HitOnce(DWORD);
@@ -96,7 +97,6 @@ class TSkillUseInfo {
     void SetMainTargetVID(DWORD);
     void ResetHitCount(void);
 };
-
 class CHARACTER : public CEntity, public CFSM, public CHorseRider {
   public:
     class TBattleInfo {
@@ -225,9 +225,9 @@ class CHARACTER : public CEntity, public CFSM, public CHorseRider {
     int m_iChainLightingIndex;
     CHARACTER_SET m_setExceptChainLighting;
     DWORD m_dwAffectedEunhyungLevel;
-  protected:
+  public:
     TPlayerSkill *m_pSkillLevels;
-    boost::unordered_map<unsigned char, int, boost::hash<unsigned char>, std::equal_to<unsigned char>, std::allocator<std::pair<unsigned char const, int> > > m_SkillDamageBonus;
+    boost::unordered_map<unsigned char, int> m_SkillDamageBonus;
     std::map<int, TSkillUseInfo, std::less<int>, std::allocator<std::pair<int const, TSkillUseInfo> > > m_SkillUseInfo;
   public:
     VID m_kVIDVictim;
