@@ -1,0 +1,3 @@
+[submodule "src/libm2"]
+	path = src/libm2
+	url = git://github.com/imermcmaps/LibM2

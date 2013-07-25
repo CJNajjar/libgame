@@ -1,54 +1,37 @@
-#include "utils/detours.h"
-#include "game/stdInclude.hpp"
 #include <iostream>
 #include <fstream>
+#include "libm2/utils/detours.h"
+#include "libm2/game/stdInclude.hpp"
 #include "hooks/SyncPosition.hpp"
-#include "addr.hpp"
-int __attribute__ ((constructor)) lib_main(void);
-
+#include "hooks/CharacterConstructor.hpp"
+#include "libm2/addr.hpp"
+#include "libm2/lib/log.hpp"
+#include "libm2/lib/increaseSize.hpp"
+#include "libm2/LibM2.hpp"
+void __attribute__ ((constructor)) lib_main(void);
+using namespace libm2;
 std::string Revision((char*)Addr::misc::version,5);
 bool RIGHTREV=Revision=="34083";
-
-
-const std::string CurrentDateTime(){
-    struct tm tstruct;
-    char buf[80];
-    time_t t;
-    time(&t);
-    tstruct = *localtime(&t);
-    strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
-
-    return buf;
-};
-
-std::ofstream slog("libgame.stdlog.txt", std::ios_base::app | std::ios_base::out);
-std::ofstream serr("libgame.stderr.txt", std::ios_base::app | std::ios_base::out);
-
-#define SYSLOG slog << CURDATE << ":" << __LINE__ << " :: "
-#define SYSERR serr << CURDATE << ":" << __LINE__ << " :: "
-
-int lib_main()
+MologieDetours::Detour<int(*)(int, char **)>* detour_main;
+int main(int argc, char** argv){
+    std::cout << std::endl << "****************** Starting LibGame Kickhackfix******************" << std::endl;
+    std::cout << "**** Made by iMer (www.imer.cc).\n**** Special Thanks to Nova & tim66613" << std::endl;
+    std::cout << "**** Game Revision is " << Revision << std::endl;
+    try{
+        Hooks::SyncPosition::instance();
+        Hooks::CharacterConstructor::instance();
+        LibM2::instance();
+    }
+    catch(MologieDetours::DetourException &e){
+        std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
+    }
+    std::cout << "**** Hooking Phase completed!" << std::endl;
+    increaseSize<iCHARACTER>((unsigned int*)Addr::CHARACTER_MANAGER::createCharacter_alloc);
+    return detour_main->GetOriginalFunction()(argc, argv);
+}
+void lib_main()
 {
-    std::cout << std::endl << "****************** Starting LibGame ******************" << std::endl;
     if (RIGHTREV){
-        std::cout<<"sizeof(CHARACTER)" << sizeof(CHARACTER) <<std::endl;
-        std::cout<<"sizeof(CHARACTER::m_SkillDamageBonus)" << sizeof(CHARACTER::m_SkillDamageBonus) <<std::endl;
-        //std::cout<<"sizeof(std::unordered_map)" << sizeof(std::unordered_map<int,int>) <<std::endl;
-        //std::cout << "offset " << std::hex <<&(((CHARACTER *)0)->m_SkillDamageBonus) <<std::dec << std::endl;
-        std::cout << "*** Game Revision is " << Revision << std::endl;
-        try{
-            Hooks::SyncPosition* s=new Hooks::SyncPosition();
-        }catch(MologieDetours::DetourException &e){
-            std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
-        }
-        std::cout << "**** Hooking Phase completed!" << std::endl;
-    }else{
-        int i = 1;
-        while(i != 10)
-        {
-            std::cout << "FATAL !!!! LibGame is not compatible to this game revision !!!!" << std::endl;
-            usleep(200);
-            ++i;
-        }
+        detour_main =new MologieDetours::Detour<int(*)(int, char **)>((int(*)(int, char **))Addr::misc::main, main);
     }
 }

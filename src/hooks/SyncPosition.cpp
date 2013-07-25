@@ -1,18 +1,14 @@
 #include "SyncPosition.hpp"
+#include "../libm2/game/CHARACTER_MANAGER.hpp"
+#include "../libm2/lib/log.hpp"
+#include "../libm2/game/misc.hpp"
 using namespace Hooks;
 SyncPosition::SyncPosition():Hook::Hook(){}
 
-int SyncPosition::hook(LPCHARACTER ch, const char * data, size_t size){
-    ch->ChatPacket(0,"BlaBlub");
-    ch->ChatPacket(0,"BlaBlub");
-    ch->ChatPacket(0,"BlaBlub");
-    ch->ChatPacket(0,"BlaBlub");
-    ch->ChatPacket(0,"BlaBlub");
-    ch->ChatPacket(0,"BlaBlub");
-    return 1;
-   /* size_t len = *(short*)(data+1);
+int SyncPosition::hook(CInputMain* self, iCHARACTER* ch, const char * data, size_t s){
+    size_t len = *(short*)(data+1);
     if (len>s){
-        SYSERR << "CInputMain::SycPosition :: length mismatch. Expected "<< s << " got "<< len <<". Player ("<<ch->m_stName<<")" << std::endl;
+        SYSERR << "CInputMain::SycPosition :: length mismatch. Expected "<< s << " got "<< len <<". Player ("<<  ch->GetName() <<")" << std::endl;
         return -1;
     }
     short times=(len-3)/0xC;
@@ -34,42 +30,40 @@ int SyncPosition::hook(LPCHARACTER ch, const char * data, size_t size){
         buffer[i]=0;
     }
     const char* curAddr=data+3;
-    GameFunc::CHARACTER* chTarget;
+    iCHARACTER* chTarget;
     DWORD target;
-    time_t time=GetGlobalTime();
+    time_t time=get_global_time();
     for (int i=0;i<times;i++,curAddr+=0xC){
-        if (!*singleton_CHARACTER_MANAGER)
-            break;
         target = *(DWORD*)(curAddr);
-        chTarget = CHARACTER_MANAGER::Find(*singleton_CHARACTER_MANAGER,target);
+        chTarget = (iCHARACTER*)CHARACTER_MANAGER::instance()->Find(target);
         if (!chTarget){
-            SYSERR << "CInputMain::SycPosition :: Invalid Target (" << target << " | " << chTarget << ") by Name(" << ch->m_stName << ")" << std::endl;
+            SYSERR << "CInputMain::SycPosition :: Invalid Target (" << target << " | " << chTarget << ") by Name(" << ch->GetName() << ")" << std::endl;
             continue;
         }
-        charType = CHARACTER::GetCharType(chTarget);
-        if (charType!=1&&charType!=3&&CHARACTER::SetSyncOwner(chTarget,ch,1)){
+        charType = ch->GetCharType();
+        if (charType!=1&&charType!=3&&chTarget->SetSyncOwner(ch,1)){
             int px=(int)*(DWORD*)(curAddr+4);
-            x = static_cast<float>(chTarget->m_pos.x-px)/100;
+            x = static_cast<float>(chTarget->GetX()-px)/100;
             int py=(int)*(DWORD*)(curAddr+8);
-            y = static_cast<float>(chTarget->m_pos.y-py)/100;
+            y = static_cast<float>(chTarget->GetX()-py)/100;
             dist = sqrt(x*x+y*y);
             if (dist < 25.0){
                 if (chTarget->m_tLastSync != time){
                     chTarget->m_tLastSync=time;
                     chTarget->m_fSyncDist=0.0;
                 }
-                if (chTarget->m_fSyncDist+dist > 25.0){
-                    if (chTarget->m_fSyncDist>=25.0){
-                        SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " already) - skipping - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
+                if (chTarget->m_fSyncDist+dist > 14.0){
+                    if (chTarget->m_fSyncDist>=14.0){
+                        SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " already) - skipping - Name (" << ch->GetName() << ") Target (" << chTarget->GetName() << ")" << std::endl;
                         *(DWORD*)(sbBase)=target;
-                        *(DWORD*)(sbBase+4)=(DWORD)chTarget->m_pos.x;
-                        *(DWORD*)(sbBase+8)=(DWORD)chTarget->m_pos.y;
+                        *(DWORD*)(sbBase+4)=(DWORD)chTarget->GetX();
+                        *(DWORD*)(sbBase+8)=(DWORD)chTarget->GetX();
                         sbBase+=0xC;
                         sbCount++;
                         chTarget->m_fSyncDist+=dist;
                         continue;
                     }
-                    SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " + " << dist << ") - limiting - Name (" << ch->m_stName << ") Target (" << chTarget->m_stName << ")" << std::endl;
+                    SYSLOG << "CInputMain::SycPosition :: Dist too high (" << chTarget->m_fSyncDist << " + " << dist << ") - limiting - Name (" << ch->GetName() << ") Target (" << chTarget->GetName() << ")" << std::endl;
                     // normalize
                     float xN = x/dist;
                     float yN = y/dist;
@@ -85,7 +79,7 @@ int SyncPosition::hook(LPCHARACTER ch, const char * data, size_t size){
                 *(DWORD*)(bBase+8)=(DWORD)py;
                 bBase+=0xC;
                 bCount++;
-                CHARACTER::Sync(chTarget,(long)px,(long)py);
+                chTarget->Sync((long)px,(long)py);
             }
         }
     }
@@ -94,18 +88,18 @@ int SyncPosition::hook(LPCHARACTER ch, const char * data, size_t size){
         // type
         *(buffer)=(char)5;
         //  size
-        *(buffer+1)=(short)(3+0xC*bCount);
-        CEntity::PacketAround(ch,buffer,3+0xC*bCount,ch);
+        *(short*)(buffer+1)=(short)(3+0xC*bCount);
+        ch->PacketAround(buffer,3+0xC*bCount,ch);
     }
     // Send update packet to all players
     if (sbCount>0){
         // type
-        *(BYTE*)(selfBuffer)=(char)5;
+        *(selfBuffer)=(char)5;
         // size
         *(short*)(selfBuffer+1)=(short)(3+0xC*sbCount);
-        CEntity::PacketAround(ch,selfBuffer,(short)(3+0xC*sbCount),nullptr);
+        ch->PacketAround(selfBuffer,(short)(3+0xC*sbCount),nullptr);
     }
     delete buffer;
     delete selfBuffer;
-    return len-3;*/
+    return len-3;
 }
