@@ -1,6 +1,5 @@
 #include "CharacterConstructor.hpp"
 using namespace Hooks;
-
 CharacterConstructor::CharacterConstructor():Hook::Hook(){}
 
 void CharacterConstructor::hook(iCHARACTER* self){

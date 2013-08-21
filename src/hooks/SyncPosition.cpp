@@ -4,7 +4,8 @@
 #include "../libm2/game/misc.hpp"
 using namespace Hooks;
 SyncPosition::SyncPosition():Hook::Hook(){}
-
+#include "../libm2/game/ITEM_MANAGER.hpp"
+#include "../libm2/game/DBManager.hpp"
 int SyncPosition::hook(CInputMain* self, iCHARACTER* ch, const char * data, size_t s){
     size_t len = *(short*)(data+1);
     if (len>s){
