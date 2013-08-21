@@ -1,23 +1,18 @@
-#ifndef __HOOKS_CHARACTERCONSTRUCTOR_HPP
-#define __HOOKS_CHARACTERCONSTRUCTOR_HPP
-#include "Hook.hpp"
-#include "../addr.hpp"
-#include "../gameinfo.hpp"
-#include "../func/General.hpp"
-#include "../func/CHARACTER.hpp"
-#include "../func/CHARACTER_MANAGER.hpp"
-namespace CHARACTER{
-class CharacterConstructor: public Hook{
+#ifndef _HOOKS_CHARACTERCONSTRUCTOR_HPP
+#define _HOOKS_CHARACTERCONSTRUCTOR_HPP
+#include "../libm2/lib/hook.hpp"
+#include "../libm2/addr.hpp"
+#include "../game/iCHARACTER.hpp"
+#include "../libm2/lib/singleton.hpp"
+using namespace libm2;
+namespace Hooks{
+typedef void (*tCharacterConstructor)(iCHARACTER* self);
+class CharacterConstructor: public Hook<tCharacterConstructor,(unsigned int)Addr::CHARACTER::CHARACTER,CharacterConstructor>{
     public:
-        static void hook(GameFunc::CHARACTER* pkCh);
-        void init();
-        static CharacterConstructor* instance();
-        MologieDetours::Detour<tCHARACTER>* detour;
-    private:
-        CharacterConstructor();
-        static CharacterConstructor* sInstance;
+    CharacterConstructor();
+    static void hook(iCHARACTER* self);
 };
 }
+#endif // _HOOKS_CHARACTERCONSTRUCTOR_HPP
 
-#endif // __HOOKS_CHARACTERCONSTRUCTOR_HPP
 

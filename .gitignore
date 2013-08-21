@@ -2,4 +2,5 @@
 *.cbTemp
 GameExt.depend
 GameExt.layout
-
+obj
+bin
