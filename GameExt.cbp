@@ -12,22 +12,36 @@
 				<Option type="1" />
 				<Option compiler="gcc_uniwin" />
 				<Compiler>
-					<Add option="-fPIC -g -fpermissive -std=c++11" />
+					<Add option="-fPIC -g -std=c++11" />
 				</Compiler>
 				<Linker>
 					<Add option="-shared -lpthread -Wl,-soname=libgame.so" />
 					<Add option="-L/usr/local/lib/mysql -lmysqlclient  -pthread -lz -lm" />
+					<Add option="-I/usr/local/include  -L/usr/local/lib -lyaml-cpp" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="src/commands/test.cpp" />
+		<Unit filename="src/commands/test.hpp" />
+		<Unit filename="src/dif/ApplyInfo.cpp" />
+		<Unit filename="src/dif/ApplyInfo.hpp" />
 		<Unit filename="src/dif/EmpirePriv.cpp" />
 		<Unit filename="src/dif/EmpirePriv.hpp" />
+		<Unit filename="src/dif/HorseTable.cpp" />
+		<Unit filename="src/dif/HorseTable.hpp" />
+		<Unit filename="src/game/iCHARACTER.cpp" />
 		<Unit filename="src/game/iCHARACTER.hpp" />
+		<Unit filename="src/globals.cpp" />
+		<Unit filename="src/globals.hpp" />
 		<Unit filename="src/hooks/CharacterConstructor.cpp" />
 		<Unit filename="src/hooks/CharacterConstructor.hpp" />
+		<Unit filename="src/hooks/HorseApply.cpp" />
+		<Unit filename="src/hooks/HorseApply.hpp" />
+		<Unit filename="src/hooks/HorseVnum.cpp" />
+		<Unit filename="src/hooks/HorseVnum.hpp" />
 		<Unit filename="src/hooks/SyncPosition.cpp" />
 		<Unit filename="src/hooks/SyncPosition.hpp" />
 		<Unit filename="src/libm2/Command.cpp" />
@@ -53,6 +67,7 @@
 		<Unit filename="src/libm2/game/CFSM.cpp" />
 		<Unit filename="src/libm2/game/CFSM.hpp" />
 		<Unit filename="src/libm2/game/CGrid.hpp" />
+		<Unit filename="src/libm2/game/CGuild.cpp" />
 		<Unit filename="src/libm2/game/CGuild.hpp" />
 		<Unit filename="src/libm2/game/CGuildManager.cpp" />
 		<Unit filename="src/libm2/game/CGuildManager.hpp" />
@@ -124,6 +139,8 @@
 		<Unit filename="src/libm2/game/FDWATCH.hpp" />
 		<Unit filename="src/libm2/game/ITEM_MANAGER.cpp" />
 		<Unit filename="src/libm2/game/ITEM_MANAGER.hpp" />
+		<Unit filename="src/libm2/game/P2P_MANAGER.cpp" />
+		<Unit filename="src/libm2/game/P2P_MANAGER.hpp" />
 		<Unit filename="src/libm2/game/PIXEL_POSITION.hpp" />
 		<Unit filename="src/libm2/game/SAccountTable.hpp" />
 		<Unit filename="src/libm2/game/SECTREE.hpp" />
@@ -146,8 +163,12 @@
 		<Unit filename="src/libm2/game/TAffectFlag.cpp" />
 		<Unit filename="src/libm2/game/TAffectFlag.hpp" />
 		<Unit filename="src/libm2/game/TAreaInfo.hpp" />
+		<Unit filename="src/libm2/game/TEMP_BUFFER.cpp" />
+		<Unit filename="src/libm2/game/TEMP_BUFFER.hpp" />
+		<Unit filename="src/libm2/game/THorseStat.hpp" />
 		<Unit filename="src/libm2/game/VID.cpp" />
 		<Unit filename="src/libm2/game/VID.hpp" />
+		<Unit filename="src/libm2/game/_CCI.hpp" />
 		<Unit filename="src/libm2/game/enums.hpp" />
 		<Unit filename="src/libm2/game/fwDecl.hpp" />
 		<Unit filename="src/libm2/game/lua.cpp" />
@@ -162,6 +183,7 @@
 		<Unit filename="src/libm2/game/quest/CQuestManager.cpp" />
 		<Unit filename="src/libm2/game/quest/CQuestManager.hpp" />
 		<Unit filename="src/libm2/game/quest/NPC.hpp" />
+		<Unit filename="src/libm2/game/quest/PC.cpp" />
 		<Unit filename="src/libm2/game/quest/PC.hpp" />
 		<Unit filename="src/libm2/game/quest/QuestState.hpp" />
 		<Unit filename="src/libm2/game/quest/RewardData.hpp" />
@@ -170,6 +192,7 @@
 		<Unit filename="src/libm2/lib/GameSingleton.hpp" />
 		<Unit filename="src/libm2/lib/dif.cpp" />
 		<Unit filename="src/libm2/lib/dif.hpp" />
+		<Unit filename="src/libm2/lib/event.hpp" />
 		<Unit filename="src/libm2/lib/hook.hpp" />
 		<Unit filename="src/libm2/lib/increaseSize.hpp" />
 		<Unit filename="src/libm2/lib/log.cpp" />
@@ -187,6 +210,7 @@
 		<Unit filename="src/libm2/utils/lua/lua.h" />
 		<Unit filename="src/libm2/utils/lua/lualib.h" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/myAddr.hpp" />
 		<Unit filename="src/quest/npc2.cpp" />
 		<Unit filename="src/quest/npc2.hpp" />
 		<Unit filename="src/quest/pc2.cpp" />
