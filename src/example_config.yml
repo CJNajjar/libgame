@@ -1,0 +1,23 @@
+hooks:
+    SyncPosition: 
+        enable: 1
+        limit: 25
+        #only add score for player targets
+        playeronly: 1 
+        scoreadd-threshold: 35
+        # kills the player once as warning, 0 to disable
+        killwarning: 5
+        autobanscore: 10
+        autobanreason: "Kickhack"
+        # seconds
+        score-decay: 600
+    HorseVnum: 
+        enable: 1
+    HorseApply: 
+        enable: 1
+dif:
+    priv_empire_max_rate: 1000
+quest:
+    npc2: 1
+commands:
+account-db: "account"
