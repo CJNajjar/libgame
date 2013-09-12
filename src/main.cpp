@@ -22,6 +22,7 @@
 #include "globals.hpp"
 #include "commands/test.hpp"
 #include "hooks/DoWar.hpp"
+#include "hooks/NumberEx.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -61,6 +62,7 @@ void lib_main(){
         if (config["hooks"]["HorseApply"]["enable"]){
             Hooks::HorseApply::instance();
         }
+        Hooks::NumberEx::instance();
         Hooks::DoWar::instance();
         LibM2::instance();
     } catch(MologieDetours::DetourException &e) {
