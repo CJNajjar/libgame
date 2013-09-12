@@ -6,6 +6,7 @@ enum class misc{
     priv_empire_maxrate2=0x80DD4A3,
     priv_empire_maxrate3=0x818C3E7,
     aApplyInfo=0x846AD80,
+    do_war=0x80D2580,
 };
 enum class horse{
     c_aHorseStat=0x85EE480,

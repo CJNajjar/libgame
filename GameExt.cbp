@@ -38,6 +38,8 @@
 		<Unit filename="src/globals.hpp" />
 		<Unit filename="src/hooks/CharacterConstructor.cpp" />
 		<Unit filename="src/hooks/CharacterConstructor.hpp" />
+		<Unit filename="src/hooks/DoWar.cpp" />
+		<Unit filename="src/hooks/DoWar.hpp" />
 		<Unit filename="src/hooks/HorseApply.cpp" />
 		<Unit filename="src/hooks/HorseApply.hpp" />
 		<Unit filename="src/hooks/HorseVnum.cpp" />

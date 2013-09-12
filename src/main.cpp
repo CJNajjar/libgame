@@ -21,10 +21,10 @@
 #include <yaml-cpp/yaml.h>
 #include "globals.hpp"
 #include "commands/test.hpp"
+#include "hooks/DoWar.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
-using Hooks::HorseVnum;
 std::string Revision((char*)Addr::misc::version,5);
 bool RIGHTREV=Revision=="34083";
 bool file_exists(const char* filename){
@@ -61,6 +61,7 @@ void lib_main(){
         if (config["hooks"]["HorseApply"]["enable"]){
             Hooks::HorseApply::instance();
         }
+        Hooks::DoWar::instance();
         LibM2::instance();
     } catch(MologieDetours::DetourException &e) {
         std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
