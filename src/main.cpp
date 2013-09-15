@@ -23,6 +23,7 @@
 #include "commands/test.hpp"
 #include "hooks/DoWar.hpp"
 #include "hooks/NumberEx.hpp"
+#include "dif/ChangeAttr.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -85,5 +86,10 @@ void lib_main(){
     libm2::dif((void*)0x80787AC,&status_always_dif,5);
     // reset, give full ammount
     libm2::dif((void*)0x807C93F,new char(0xFF),1);
+    std::cout << "change_attr time patch" << std::endl;
+    dif::ChangeAttr::instance();
+    if (config["dif"]["change_attr_time"]){
+        dif::ChangeAttr::instance()->SetTime(config["dif"]["change_attr_time"].as<int>());
+    }
     std::cout << "**** Done initializing!" << std::endl;
 }

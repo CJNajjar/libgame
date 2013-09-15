@@ -12,5 +12,3 @@ public:
 };
 }
 #endif // _HOOKS_NUMBEREX_HPP
-
-

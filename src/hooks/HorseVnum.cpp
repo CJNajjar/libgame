@@ -1,6 +1,7 @@
 #include "HorseVnum.hpp"
 #include <sstream>
 #include "../libm2/game/quest/CQuestManager.hpp"
+#include "../game/iCHARACTER.hpp"
 using namespace Hooks;
 using namespace libm2;
 HorseVnum::HorseVnum():Hook::Hook(){
@@ -24,6 +25,7 @@ HorseVnum::HorseVnum():Hook::Hook(){
         vnums[i].guild=20108;
         vnums[i].guildmaster=20109;
     }
+    detourSummon=simpleHook<void (*)(CHARACTER * const, bool, bool, DWORD, const char *)>((unsigned int)Addr::CHARACTER::HorseSummon,HorseVnum::hookSummon);
 }
 unsigned int HorseVnum::hook(CHARACTER* self){
     quest::PC* qPC = quest::CQuestManager::instance()->GetPC(self->GetPlayerID());
@@ -56,4 +58,10 @@ void HorseVnum::set(short level, unsigned int vnum){
 }
 HorseVnum::TVnum HorseVnum::get(short level){
     return vnums[level];
+}
+void HorseVnum::hookSummon(CHARACTER* self,bool b1,bool b2,DWORD vnum, const char* name){
+    instance()->detourSummon->GetOriginalFunction()(self,b1,b2,vnum,name);
+    if (self->GetHorse()){
+        ((iCHARACTER*)self->GetHorse())->setHorseState();
+    }
 }

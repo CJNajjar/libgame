@@ -28,6 +28,8 @@
 		<Unit filename="src/commands/test.hpp" />
 		<Unit filename="src/dif/ApplyInfo.cpp" />
 		<Unit filename="src/dif/ApplyInfo.hpp" />
+		<Unit filename="src/dif/ChangeAttr.cpp" />
+		<Unit filename="src/dif/ChangeAttr.hpp" />
 		<Unit filename="src/dif/EmpirePriv.cpp" />
 		<Unit filename="src/dif/EmpirePriv.hpp" />
 		<Unit filename="src/dif/HorseTable.cpp" />
@@ -44,6 +46,8 @@
 		<Unit filename="src/hooks/HorseApply.hpp" />
 		<Unit filename="src/hooks/HorseVnum.cpp" />
 		<Unit filename="src/hooks/HorseVnum.hpp" />
+		<Unit filename="src/hooks/NumberEx.cpp" />
+		<Unit filename="src/hooks/NumberEx.hpp" />
 		<Unit filename="src/hooks/SyncPosition.cpp" />
 		<Unit filename="src/hooks/SyncPosition.hpp" />
 		<Unit filename="src/libm2/Command.cpp" />

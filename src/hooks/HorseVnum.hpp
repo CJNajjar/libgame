@@ -3,6 +3,7 @@
 #include "../libm2/lib/hook.hpp"
 #include "../libm2/addr.hpp"
 #include "../libm2/game/CHARACTER.hpp"
+
 using namespace libm2;
 namespace Hooks{
 class HorseVnum: public Hook<unsigned int(*)(CHARACTER*),(unsigned int)Addr::CHARACTER::GetMyHorseVnum,HorseVnum>{
@@ -13,6 +14,7 @@ struct TVnum{
 };
 private:
     TVnum vnums[31];
+    MologieDetours::Detour<void (*)(CHARACTER *, bool, bool, DWORD, const char *)>* detourSummon;
 public:
     HorseVnum();
     void set(short level, unsigned int vnum);
@@ -20,6 +22,7 @@ public:
     void set(short level, unsigned int vnum, unsigned int vnum_guild, unsigned int vnum_guildmaster);
     TVnum get(short level);
     static unsigned int hook(CHARACTER* self);
+    static void hookSummon(CHARACTER *, bool, bool, DWORD, const char *);
 };
 }
 #endif // __HOOKS_CHARACTERGETHORSEVNUM_HPP

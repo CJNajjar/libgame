@@ -14,5 +14,6 @@ class iCHARACTER: public CHARACTER{
     std::vector<syncpos_violation> m_vec_syncPosViolation;
   public:
     void ban(long len, const char* reason, const char* by);
+    void setHorseState();
 };
 #endif // _GAME_ICHARACTER_HPP

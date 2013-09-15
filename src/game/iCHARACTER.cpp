@@ -14,3 +14,8 @@ void iCHARACTER::ban(long len, const char* reason, const char* by){
         this->GetDesc()->DelayedDisconnect(5);
     }
 }
+void iCHARACTER::setHorseState(){
+    this->m_stateBattle.Set(this,&iCHARACTER::EndStateEmpty,&iCHARACTER::StateHorse,&iCHARACTER::EndStateEmpty);
+    //this->m_stateMove.Set(this,&iCHARACTER::EndStateEmpty,&iCHARACTER::EndStateEmpty,&iCHARACTER::EndStateEmpty);
+    this->m_stateIdle.Set(this,&iCHARACTER::EndStateEmpty,&iCHARACTER::StateHorse,&iCHARACTER::EndStateEmpty);
+};
