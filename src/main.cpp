@@ -24,6 +24,7 @@
 #include "hooks/DoWar.hpp"
 #include "hooks/NumberEx.hpp"
 #include "dif/ChangeAttr.hpp"
+#include "quest/item2.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -73,7 +74,10 @@ void lib_main(){
     if (config["quest"]["npc2"]){
         LibM2::addQuestTable(tNPC2::instance());
     }
-    LibM2::addCommand("test",new command::Test());
+    if (config["quest"]["item2"]){
+        LibM2::addQuestTable(tItem2::instance());
+    }
+    //LibM2::addCommand("test",new command::Test());
     std::cout << "**** Hooking Phase completed!" << std::endl;
     if (config["dif"]["priv_empire_max_rate"]){
         dif::priv_empire_change_max_rate(config["dif"]["priv_empire_max_rate"].as<int>());
