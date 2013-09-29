@@ -32,6 +32,8 @@
 		<Unit filename="src/dif/ChangeAttr.hpp" />
 		<Unit filename="src/dif/EmpirePriv.cpp" />
 		<Unit filename="src/dif/EmpirePriv.hpp" />
+		<Unit filename="src/dif/GuildOfferExp.cpp" />
+		<Unit filename="src/dif/GuildOfferExp.hpp" />
 		<Unit filename="src/dif/HorseTable.cpp" />
 		<Unit filename="src/dif/HorseTable.hpp" />
 		<Unit filename="src/game/iCHARACTER.cpp" />
@@ -42,6 +44,8 @@
 		<Unit filename="src/hooks/CharacterConstructor.hpp" />
 		<Unit filename="src/hooks/DoWar.cpp" />
 		<Unit filename="src/hooks/DoWar.hpp" />
+		<Unit filename="src/hooks/DropGold.cpp" />
+		<Unit filename="src/hooks/DropGold.hpp" />
 		<Unit filename="src/hooks/HorseApply.cpp" />
 		<Unit filename="src/hooks/HorseApply.hpp" />
 		<Unit filename="src/hooks/HorseVnum.cpp" />
@@ -217,6 +221,8 @@
 		<Unit filename="src/libm2/utils/lua/lualib.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/myAddr.hpp" />
+		<Unit filename="src/quest/item2.cpp" />
+		<Unit filename="src/quest/item2.hpp" />
 		<Unit filename="src/quest/npc2.cpp" />
 		<Unit filename="src/quest/npc2.hpp" />
 		<Unit filename="src/quest/pc2.cpp" />

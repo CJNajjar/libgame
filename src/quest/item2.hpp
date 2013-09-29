@@ -14,6 +14,14 @@ public:
     std::string getName();
     static int get_wearflag(lua_State* L);
     static int is_wearflag(lua_State* L);
+    static int get_attr(lua_State* L);
+    static int set_attr(lua_State* L);
+    static int equip(lua_State* L);
 };
 }
 #endif // __QUEST_ITEM2_HPP
+/*
+ - int[] item.get_attr() // return {int applytype, int applyvalue}
+ - item.set_attr(int applyslot, int applytype, int applyvalue)
+ - pc.set_equipment_item(int itemVnum, int[] itemSockets, int[] itemAttrs) // erstellt ein Gegenstand im EQ
+ - pc.set_level(int level)*/

@@ -11,13 +11,20 @@ hooks:
         autobanreason: "Kickhack"
         # seconds
         score-decay: 600
-    HorseVnum: 
+    HorseVnum:
         enable: 1
-    HorseApply: 
-        enable: 1
+    HorseApply:
+        enable: 1 
 dif:
     priv_empire_max_rate: 1000
+    ApplyInfo:
+        # POINT_MALL_ATTBONUS -> old attack +x% behaviour
+        64: 114        
+    change_attr_time: 1
+    guild_offer_at_max_level: 1
 quest:
     npc2: 1
+    item2: 1 
+    pc2: 1 
 commands:
 account-db: "account"
