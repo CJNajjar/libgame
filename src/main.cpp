@@ -23,6 +23,7 @@
 #include "commands/test.hpp"
 #include "hooks/DoWar.hpp"
 #include "hooks/NumberEx.hpp"
+#include "hooks/GiveExp.hpp"
 #include "dif/ChangeAttr.hpp"
 #include "quest/item2.hpp"
 #include "hooks/DropGold.hpp"
@@ -73,6 +74,7 @@ void lib_main(){
         Hooks::NumberEx::instance();
         Hooks::DoWar::instance();
         LibM2::instance();
+        Hooks::GiveExp::instance();
     } catch(MologieDetours::DetourException &e) {
         std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
         abort();

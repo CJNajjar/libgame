@@ -10,8 +10,6 @@ bool Test::usableFor(LPCHARACTER ch){
     return true;
 };
 void Test::use(CHARACTER* ch,std::vector<std::string> args){
-    ch->ChatPacket(1,"%i",ch->GetPoint(POINT_PARTY_ATTACKER_BONUS));
-    ch->ChatPacket(1,"%i",ch->GetPoint(POINT_ATT_BONUS));
-    ch->ChatPacket(1,"%i",ch->GetPoint(POINT_MELEE_MAGIC_ATT_BONUS_PER));
+    ch->ChatPacket(1,"%i",ch->GetPoint(POINT_EXP));
 };
 }

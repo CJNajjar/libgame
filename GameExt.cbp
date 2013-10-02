@@ -46,6 +46,8 @@
 		<Unit filename="src/hooks/DoWar.hpp" />
 		<Unit filename="src/hooks/DropGold.cpp" />
 		<Unit filename="src/hooks/DropGold.hpp" />
+		<Unit filename="src/hooks/GiveExp.cpp" />
+		<Unit filename="src/hooks/GiveExp.hpp" />
 		<Unit filename="src/hooks/HorseApply.cpp" />
 		<Unit filename="src/hooks/HorseApply.hpp" />
 		<Unit filename="src/hooks/HorseVnum.cpp" />
@@ -117,6 +119,8 @@
 		<Unit filename="src/libm2/game/CParty.hpp" />
 		<Unit filename="src/libm2/game/CPetActor.hpp" />
 		<Unit filename="src/libm2/game/CPetSystem.hpp" />
+		<Unit filename="src/libm2/game/CPrivManager.cpp" />
+		<Unit filename="src/libm2/game/CPrivManager.hpp" />
 		<Unit filename="src/libm2/game/CSafebox.hpp" />
 		<Unit filename="src/libm2/game/CSemaphore.hpp" />
 		<Unit filename="src/libm2/game/CShop.hpp" />

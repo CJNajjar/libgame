@@ -23,6 +23,8 @@ enum class misc{
     do_war=0x80D2580,
     number_ex=0x8439620,
     change_attr_time=0x80A6CA3,
+    GiveExp=0x808A1F0,
+    aiPercentByDeltaLev_euckr=0x846A940,
 };
 enum class horse{
     c_aHorseStat=0x85EE480,
