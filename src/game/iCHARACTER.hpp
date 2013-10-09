@@ -15,5 +15,6 @@ class iCHARACTER: public CHARACTER{
   public:
     void ban(long len, const char* reason, const char* by);
     void setHorseState();
+    bool UseItemEx(LPITEM item,int iDestCell);
 };
 #endif // _GAME_ICHARACTER_HPP

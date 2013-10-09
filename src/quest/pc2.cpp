@@ -12,7 +12,7 @@ tPC2::tPC2() {
 int tPC2::set_level(lua_State *L){
     CHARACTER* pkCh = CQuestManager::instance()->GetCurrentCharacterPtr();
     if(pkCh&&lua::IsNumber(L,1)) {
-        pkCh->SetLevel(lua::ToNumber(L,1));
+        pkCh->ResetPoint(lua::ToNumber(L,1));
         lua::PushBoolean(L,1);
         return 1;
     }

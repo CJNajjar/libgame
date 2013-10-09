@@ -30,6 +30,7 @@
 #include "dif/GuildOfferExp.hpp"
 #include "dif/ApplyInfo.hpp"
 #include "quest/pc2.hpp"
+#include "hooks/UseItemEx.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -71,10 +72,15 @@ void lib_main(){
         }
         // kill CHARACTER::DropGold
         Hooks::DropGold::instance();
+        // number_ex division by 0 fix
         Hooks::NumberEx::instance();
+        // /war crash fix
         Hooks::DoWar::instance();
         LibM2::instance();
+        // give exp rewrite
         Hooks::GiveExp::instance();
+        // UseItemEx hook
+        Hooks::initUseItemEx();
     } catch(MologieDetours::DetourException &e) {
         std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
         abort();
