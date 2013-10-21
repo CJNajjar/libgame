@@ -1,12 +1,10 @@
 hooks:
-    SyncPosition: 
+    SyncPosition:
         enable: 1
         limit: 25
         #only add score for player targets
-        playeronly: 1 
+        playeronly: 1
         scoreadd-threshold: 35
-        # kills the player once as warning, 0 to disable
-        killwarning: 5
         autobanscore: 10
         autobanreason: "Kickhack"
         # seconds
@@ -14,17 +12,23 @@ hooks:
     HorseVnum:
         enable: 1
     HorseApply:
-        enable: 1 
+        enable: 1
+    # multiple race flags
+    CalcAttBonus:
+        enable: 1
+    # GiveExp - limit to 1.3% from level 100 and up
+    GiveExp:
+        enable: 1
 dif:
     priv_empire_max_rate: 1000
     ApplyInfo:
         # POINT_MALL_ATTBONUS -> old attack +x% behaviour
-        64: 114        
+        64: 114
     change_attr_time: 1
     guild_offer_at_max_level: 1
 quest:
     npc2: 1
-    item2: 1 
-    pc2: 1 
+    item2: 1
+    pc2: 1
 commands:
 account-db: "account"

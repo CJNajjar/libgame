@@ -25,6 +25,7 @@ enum class misc{
     change_attr_time=0x80A6CA3,
     GiveExp=0x808A1F0,
     aiPercentByDeltaLev_euckr=0x846A940,
+    CalcAttBonus=0x8061130,
 };
 enum class horse{
     c_aHorseStat=0x85EE480,

@@ -5,6 +5,7 @@ namespace dif{
 // Original in case the "dif" doesnt get used
 uint8_t* aApplyInfo=(uint8_t*)myAddr::misc::aApplyInfo;
 ApplyInfo::ApplyInfo(){
+    hookApplyPoint = simpleHook<void (*)(CHARACTER*, BYTE, int)>((unsigned int)Addr::CHARACTER::ApplyPoint,ApplyInfo::hook);
     this->max_index=0;
     // read original
     for (int i=0;i<87;i++){
@@ -12,6 +13,13 @@ ApplyInfo::ApplyInfo(){
     }
     this->init();
 }
+void ApplyInfo::hook(CHARACTER* ch, BYTE type, int value){
+    if (type <= 86 || type > instance()->max_index){
+        instance()->hookApplyPoint->GetOriginalFunction()(ch,type,value);
+    }else{
+        ch->PointChange(aApplyInfo[type], value, false, false);
+    }
+};
 void ApplyInfo::init(){
     if (aApplyInfo!=(uint8_t*)myAddr::misc::aApplyInfo){
         delete aApplyInfo;

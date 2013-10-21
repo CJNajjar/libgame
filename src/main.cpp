@@ -31,6 +31,7 @@
 #include "dif/ApplyInfo.hpp"
 #include "quest/pc2.hpp"
 #include "hooks/UseItemEx.hpp"
+#include "hooks/CalcAttBonus.hpp"
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -70,6 +71,9 @@ void lib_main(){
         if (config["hooks"]["HorseApply"]["enable"]){
             Hooks::HorseApply::instance();
         }
+        if (config["hooks"]["CalcAttBonus"]["enable"]){
+            Hooks::CalcAttBonus::instance();
+        }
         // kill CHARACTER::DropGold
         Hooks::DropGold::instance();
         // number_ex division by 0 fix
@@ -78,7 +82,9 @@ void lib_main(){
         Hooks::DoWar::instance();
         LibM2::instance();
         // give exp rewrite
-        Hooks::GiveExp::instance();
+        if (config["hooks"]["GiveExp"]["enable"]){
+                Hooks::GiveExp::instance();
+        }
         // UseItemEx hook
         Hooks::initUseItemEx();
     } catch(MologieDetours::DetourException &e) {

@@ -7,7 +7,7 @@
 #include "../libm2/game/CHARACTER.hpp"
 
 using namespace libm2;
-namespace quest{
+namespace quest{ 
 class tNPC2: public IQuest, public singleton<tNPC2>{
 public:
     tNPC2();
@@ -15,6 +15,7 @@ public:
     static int get_pc_vid(lua_State* L);
     static int get_pc_pid(lua_State* L);
     static int get_level(lua_State* L);
+    static int select(lua_State* L);
 };
 }
 #endif // __QUEST_NPC2_HPP

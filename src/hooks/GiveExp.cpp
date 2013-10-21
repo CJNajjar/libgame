@@ -57,7 +57,12 @@ void GiveExp::hook(CHARACTER* from, CHARACTER* to, int iExp) {
     delta += (delta * to->GetPoint(POINT_EXP)) / 100;
     delta += (delta * CHARACTER_MANAGER::instance()->GetMobExpRate(to)) / 100;
     // AdjustExpByLevel
-    long long adjusted = AdjustExpByLevel(to, MIN(to->GetNextExp() / 10, delta));
+    long long adjusted;
+    if (to->GetLevel() > 100){
+        adjusted = AdjustExpByLevel(to, MIN(to->GetNextExp()*0.013, delta));
+    }else{
+        adjusted = AdjustExpByLevel(to, MIN(to->GetNextExp() / 10, delta));
+    }
     long long xp = adjusted;
     if (to->GetNextExp() + adjusted >= 0x7FFFFFFF) { // overflow
         to->PointChange(POINT_EXP, 0x7FFFFFFF - to->GetNextExp(), true, false);
