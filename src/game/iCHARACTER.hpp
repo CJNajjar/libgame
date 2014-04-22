@@ -1,5 +1,5 @@
-#ifndef _GAME_ICHARACTER_HPP
-#define _GAME_ICHARACTER_HPP
+#ifndef __GAME_ICHARACTER_HPP
+#define __GAME_ICHARACTER_HPP
 #include "../libm2/game/CHARACTER.hpp"
 using namespace libm2;
 struct syncpos_violation{
@@ -16,5 +16,6 @@ class iCHARACTER: public CHARACTER{
     void ban(long len, const char* reason, const char* by);
     void setHorseState();
     bool UseItemEx(LPITEM item,int iDestCell);
+    void PointChange(BYTE type, int ammount, bool bAmmount, bool bBroadcast);
 };
-#endif // _GAME_ICHARACTER_HPP
+#endif // __GAME_ICHARACTER_HPP

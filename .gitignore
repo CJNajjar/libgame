@@ -1,8 +1,17 @@
-*.save
-*.cbTemp
-GameExt.depend
-GameExt.layout
-obj
-bin
-nbproject
-Makefile
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+# netbeans
+nbproject/private/
+dist/
+build/

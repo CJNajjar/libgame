@@ -9,7 +9,7 @@
 using namespace libm2;
 namespace Hooks{
 typedef int (*tSyncPosition)(CInputMain* self, iCHARACTER*, const char *, size_t);
-class SyncPosition: public Hook<tSyncPosition,(unsigned int)Addr::CInputMain::SyncPosition,SyncPosition>{
+class SyncPosition: public Hook<tSyncPosition,(unsigned int)Addr::CInputMain::SyncPosition__LPCHARACTER_const_char__size_t,SyncPosition>{
 private:
     float limit;
     bool playeronly;

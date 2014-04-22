@@ -8,6 +8,6 @@ bool UseItemExWrapper(iCHARACTER* self, LPITEM item, int iDestCell){
     return self->UseItemEx(item, iDestCell);
 }
 void initUseItemEx(){
-    globals::instance()->UseItemEx = libm2::simpleHook<bool (*)(iCHARACTER*,LPITEM,int)>((unsigned int)libm2::Addr::CHARACTER::UseItemEx,UseItemExWrapper);
+    globals::instance()->UseItemEx = libm2::simpleHook<bool (*)(iCHARACTER*,LPITEM,int)>((unsigned int)libm2::Addr::CHARACTER::UseItemEx__LPITEM_int,UseItemExWrapper);
 }
 }

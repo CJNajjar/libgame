@@ -32,6 +32,8 @@
 #include "quest/pc2.hpp"
 #include "hooks/UseItemEx.hpp"
 #include "hooks/CalcAttBonus.hpp"
+#include "hooks/PointChange.hpp"
+
 void __attribute__ ((constructor)) lib_main(void);
 using namespace ::quest;
 using namespace libm2;
@@ -87,6 +89,8 @@ void lib_main(){
         }
         // UseItemEx hook
         Hooks::initUseItemEx();
+        // PointChange hook
+        Hooks::initPointChange();
     } catch(MologieDetours::DetourException &e) {
         std::cout << std::endl << "Error when hooking function: " << e.what() << std::endl << std::endl;
         abort();
@@ -118,6 +122,8 @@ void lib_main(){
     libm2::dif((void*)0x807C93F,new char(0xFF),1);
     // increase allowed horse speed difference
     libm2::dif((void*)0x8474FDA,new unsigned char[2]{0x48,0x43},2);
+    // 100% immune
+    libm2::dif((void*)0x80B12DE, new char(0x65),1);
     std::cout << "change_attr time patch" << std::endl;
     dif::ChangeAttr::instance();
     if (config["dif"]["change_attr_time"]){

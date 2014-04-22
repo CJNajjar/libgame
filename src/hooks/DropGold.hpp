@@ -5,7 +5,7 @@
 #include "../libm2/lib/singleton.hpp"
 using namespace libm2;
 namespace Hooks{
-class DropGold: public Hook<void(*)(CHARACTER*, int),(unsigned int)Addr::CHARACTER::DropGold,DropGold>{
+class DropGold: public Hook<void(*)(CHARACTER*, int),(unsigned int)Addr::CHARACTER::DropGold__int,DropGold>{
     public:
     DropGold();
     static void hook(CHARACTER* self, int c);

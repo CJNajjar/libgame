@@ -9,6 +9,7 @@ class globals: public singleton<globals>{
 public:
     std::string account;
     MologieDetours::Detour<bool (*)(iCHARACTER*,LPITEM,int)>* UseItemEx;
+    MologieDetours::Detour<void (*)(iCHARACTER * const, BYTE, int, bool, bool)>* PointChange;
 public:
     globals();
 };

@@ -1,11 +1,12 @@
 #include "ApplyInfo.hpp"
 #include "../myAddr.hpp"
 #include "../libm2/lib/dif.hpp"
+#include "../libm2/addr.hpp"
 namespace dif{
 // Original in case the "dif" doesnt get used
 uint8_t* aApplyInfo=(uint8_t*)myAddr::misc::aApplyInfo;
 ApplyInfo::ApplyInfo(){
-    hookApplyPoint = simpleHook<void (*)(CHARACTER*, BYTE, int)>((unsigned int)Addr::CHARACTER::ApplyPoint,ApplyInfo::hook);
+    hookApplyPoint = simpleHook<void (*)(CHARACTER*, BYTE, int)>((unsigned int)Addr::CHARACTER::ApplyPoint__BYTE_int,ApplyInfo::hook);
     this->max_index=0;
     // read original
     for (int i=0;i<87;i++){

@@ -25,7 +25,7 @@ HorseVnum::HorseVnum():Hook::Hook(){
         vnums[i].guild=20108;
         vnums[i].guildmaster=20109;
     }
-    detourSummon=simpleHook<void (*)(CHARACTER * const, bool, bool, DWORD, const char *)>((unsigned int)Addr::CHARACTER::HorseSummon,HorseVnum::hookSummon);
+    detourSummon=simpleHook<void (*)(CHARACTER * const, bool, bool, DWORD, const char *)>((unsigned int)Addr::CHARACTER::HorseSummon__bool_bool_DWORD_const_char_,HorseVnum::hookSummon);
 }
 unsigned int HorseVnum::hook(CHARACTER* self){
     quest::PC* qPC = quest::CQuestManager::instance()->GetPC(self->GetPlayerID());

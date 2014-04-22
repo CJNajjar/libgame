@@ -2,6 +2,7 @@
 #include "../libm2/game/DBManager.hpp"
 #include "../globals.hpp"
 #include "../libm2/lib/log.hpp"
+#include "../libm2/game/enums.hpp"
 void iCHARACTER::ban(long len, const char* reason, const char* by) {
     std::ostringstream ss;
     // system used by hc (old hp)
@@ -24,9 +25,20 @@ bool iCHARACTER::UseItemEx(LPITEM item, int iDestCell) {
     case 71052:
         CItem* useon = this->GetItem(iDestCell);
         if (useon && useon->GetType()==ITEM_COSTUME){
-            this->ChatPacket(CHAT_TYPE_INFO,locale_find("¼Ó¼ºÀ» º¯°æÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù."));
+            this->ChatPacket(CHAT_TYPE_INFO,locale_find("Â¼Ã“Â¼ÂºÃ€Â» ÂºÂ¯Â°Ã¦Ã‡Ã’ Â¼Ã¶ Â¾Ã¸Â´Ã‚ Â¾Ã†Ã€ÃŒÃ…Ã›Ã€Ã”Â´ÃÂ´Ã™."));
             return true;
         }
     }
     return globals::instance()->UseItemEx->GetOriginalFunction()(this, item, iDestCell);
+}
+
+void iCHARACTER::PointChange(BYTE type, int ammount, bool bAmmount, bool bBroadcast){
+    switch (type){
+        case POINT_ATTBONUS_INSECT:
+            this->SetPoint(type, this->GetPoint(type)+ammount);
+            if (ammount != 0 && this->GetDesc()){
+                
+            }
+    }
+    globals::instance()->PointChange->GetOriginalFunction()(this, type, ammount, bAmmount, bBroadcast);
 }
